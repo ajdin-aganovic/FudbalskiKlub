@@ -15,7 +15,7 @@ namespace FudbalskiKlub.Services.Model
 
         //public virtual Korisnik Korisnik { get; set; } = null!;
 
-        //public virtual Uloga Uloga { get; set; } = null!;
+        public virtual Uloga Uloga { get; set; } = null!;
     }
 
 }

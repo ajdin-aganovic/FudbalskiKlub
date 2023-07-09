@@ -88,5 +88,23 @@ namespace FudbalskiKlub.Services
             return base.AddInclude(query, search);
         }
 
+        public async Task<Model.Korisnik>Login(string username, string password)
+        {
+            var entity = await _context.Korisniks.Include("KorisnikUlogas.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
+
+            if(entity==null)
+            {
+                return null;
+            }
+
+            var hash = GenerateHash(entity.LozinkaSalt, password);
+
+            if(hash!=entity.LozinkaHash)
+            {
+                return null;
+            }
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
+
     }
 }

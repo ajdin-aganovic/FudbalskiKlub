@@ -1,10 +1,13 @@
+using FudbalskiKlub;
 using FudbalskiKlub.Filters;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Database1;
 using FudbalskiKlub.Services.ProizvodiStateMachine;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddTransient<IBolestService, BolestService>();
@@ -31,28 +34,73 @@ builder.Services.AddControllers(x =>
 {
     x.Filters.Add<ErrorFilter>();
 });
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.AddSecurityDefinition("basicAuth", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+    {
+        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Scheme = "basic"
+    });
+
+    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference{Type = ReferenceType.SecurityScheme, Id = "basicAuth"}
+            },
+            new string[]{}
+    } });
+
+});
+
+
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+//builder.Services.AddSwaggerGen(c =>
+//{
+//    c.AddSecurityDefinition("basicAuth", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()                                     //od prije
+//    {
+//         Type=Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+//         Scheme="basic"
+//    });
+
+//    c.AddSecurityRequirement(new Microsoft.OpenApi.Models.OpenApiSecurityRequirement()
+//    {
+//        {
+//            new OpenApiSecurityScheme
+//            {
+//                Reference= new OpenApiReference{Type=ReferenceType.SecurityScheme, Id="BasicAuth"}
+//            },
+//            new string[]{ }
+//        }
+//    });
+//});
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<MiniafkContext>(options =>
 options.UseSqlServer(connectionString));
 
-builder.Services.AddAutoMapper(typeof(IPlatumService));
+//builder.Services.AddAutoMapper(typeof(IPlatumService));
+builder.Services.AddAutoMapper(typeof(IKorisnikService)); //mozda ne treba??!?!?!?!?
 
+builder.Services.AddAuthentication("BasicAuthentication")
+    .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI();       //od prije
+    
 }
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
@@ -60,11 +108,11 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<MiniafkContext>();
-    //dataContext.Database1.EnsureCreated();
+    //dataContext.Database.EnsureCreated();
 
     var conn = dataContext.Database.GetConnectionString();
 
-    //dataContext.Database1.Migrate();
+    //dataContext.Database.Migrate();
 
 
 }

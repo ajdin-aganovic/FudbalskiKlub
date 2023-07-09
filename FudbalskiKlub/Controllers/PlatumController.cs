@@ -2,10 +2,12 @@
 using FudbalskiKlub.Model.Requests;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FudbalskiKlub.Controllers
 {
+    [Authorize(Roles ="Administrator")]
     [ApiController]
     [Route("[controller]")]
     public class PlatumController : BaseCRUDController<Platum, Model.SearchObjects.PlatumSearchObject, Model.Requests.PlatumInsertRequest, Model.Requests.PlatumUpdateRequest>

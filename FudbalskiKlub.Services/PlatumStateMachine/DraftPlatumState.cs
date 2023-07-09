@@ -62,7 +62,7 @@ namespace FudbalskiKlub.Services.ProizvodiStateMachine
             entity.StateMachine = "active";
 
             await _context.SaveChangesAsync();
-            
+
 
             //var factory = new ConnectionFactory { HostName = "localhost" };
             //using var connection = factory.CreateConnection();
@@ -75,16 +75,16 @@ namespace FudbalskiKlub.Services.ProizvodiStateMachine
             //var body = Encoding.UTF8.GetBytes(message);
 
             //channel.BasicPublish(exchange: string.Empty,
-            //                     routingKey: "product_added",
+            //                     routingKey: "platum_added",
             //                     basicProperties: null,
             //                     body: body);
 
             var mappedEntity = _mapper.Map<Model.Platum>(entity);
 
             //using var bus = RabbitHutch.CreateBus("host=localhost");
-            
+
             //bus.PubSub.Publish(mappedEntity);
-            
+
             return mappedEntity;
         }
 

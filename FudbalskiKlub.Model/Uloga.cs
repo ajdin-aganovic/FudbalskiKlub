@@ -10,7 +10,7 @@ namespace FudbalskiKlub.Services.Model
         public string? NazivUloge { get; set; }
 
         public string? PodtipUloge { get; set; }
-        public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; } = new List<KorisnikUloga>();
+        //public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; } = new List<KorisnikUloga>();
 
     }
 

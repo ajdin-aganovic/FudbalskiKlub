@@ -30,14 +30,14 @@ namespace FudbalskiKlub.Services
             return filteredQuery;
         }
 
-        public override IQueryable<Database1.Uloga> AddInclude(IQueryable<Database1.Uloga> query, UlogaSearchObject? search = null)
-        {
-            if (search?.IsKorisnikIncluded == true)
-            {
-                query = query.Include("KorisnikUlogas.Korisnik");
-            }
-            return base.AddInclude(query, search);
-        }
+        //public override IQueryable<Database1.Uloga> AddInclude(IQueryable<Database1.Uloga> query, UlogaSearchObject? search = null)
+        //{
+        //    if (search?.IsKorisnikIncluded == true)
+        //    {
+        //        query = query.Include("KorisnikUlogas.Korisnik");
+        //    }
+        //    return base.AddInclude(query, search);
+        //}
 
     }
 }

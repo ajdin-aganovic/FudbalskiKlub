@@ -9,7 +9,7 @@ namespace FudbalskiKlub.Model.SearchObjects
     public class UlogaSearchObject:BaseSearchObject
     {
         public string? NazivUloge { get; set; }
-        public bool? IsKorisnikIncluded { get; set; }
+        //public bool? IsKorisnikIncluded { get; set; }
 
     }
 }

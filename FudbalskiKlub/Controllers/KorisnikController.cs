@@ -3,6 +3,7 @@ using FudbalskiKlub.Model.Requests;
 using FudbalskiKlub.Model.SearchObjects;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage;
 
