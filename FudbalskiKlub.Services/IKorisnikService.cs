@@ -12,5 +12,7 @@ namespace FudbalskiKlub.Services
     public interface IKorisnikService:ICRUDService<Model.Korisnik, KorisnikSearchObject, KorisnikInsertRequest, KorisnikUpdateRequest>
     {
         public Task<Model.Korisnik> Login(string username, string password);
+        //Task<Model.Korisnik> Update(int id, KorisnikUpdateRequest update);
+        //Task<Model.Korisnik> Insert(KorisnikInsertRequest insert);
     }
 }

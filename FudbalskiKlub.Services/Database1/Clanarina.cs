@@ -13,5 +13,7 @@ public partial class Clanarina
 
     public double? Dug { get; set; }
 
+    public DateTime? DatumUplate { get; set; }
+
     public virtual Korisnik? Korisnik { get; set; }
 }

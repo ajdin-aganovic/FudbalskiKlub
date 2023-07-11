@@ -11,5 +11,7 @@ namespace FudbalskiKlub.Model.Requests
         public string? NazivTreninga { get; set; }
 
         public string? TipTreninga { get; set; }
+        public DateTime? DatumTreninga { get; set; }
+
     }
 }

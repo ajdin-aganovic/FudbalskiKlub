@@ -1,0 +1,36 @@
+version: '3'
+services:
+#mssql docker
+  fudbalskiklub-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWEasd123!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    expose:
+      - 1433
+    networks:
+      - fudbalskiklubnet2023
+
+  fudbalskiklubapi:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:DefaultConnection=Server=fudbalskiklub-sql,1433;Database=miniafkVjezba;User=sa;Password=QWEasd123!;ConnectRetryCount=0; TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 7181:7181
+    networks:
+      - fudbalskiklubnet2023
+    links:
+      - fudbalskiklub-sql
+    depends_on:
+      - fudbalskiklub-sql
+      
+networks:
+  fudbalskiklubnet2023:
+    driver: bridge      

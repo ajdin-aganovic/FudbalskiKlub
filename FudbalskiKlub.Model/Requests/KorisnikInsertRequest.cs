@@ -17,10 +17,10 @@ namespace FudbalskiKlub.Model.Requests
 
         public string? Email { get; set; }
         [Compare("PasswordPotvrda", ErrorMessage = "Passwords do not match.")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [Compare("Password", ErrorMessage = "Passwords do not match.")]
-        public string PasswordPotvrda { get; set; }
+        public string? PasswordPotvrda { get; set; }
 
         //public string? LozinkaHash { get; set; }
 

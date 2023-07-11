@@ -2,12 +2,14 @@
 using FudbalskiKlub.Model.Requests;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Model;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize(Roles = "Administrator, Glavni trener, Pomoćni trener, Kondicioni trener")]
     public class TreningController :
         BaseCRUDController<
             Trening,

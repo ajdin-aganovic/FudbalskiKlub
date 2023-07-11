@@ -12,6 +12,8 @@ namespace FudbalskiKlub.Model.Requests
         public double? IznosClanarine { get; set; }
 
         public double? Dug { get; set; }
+        public DateTime? DatumUplate { get; set; }
+
 
     }
 }

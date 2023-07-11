@@ -3,6 +3,7 @@ using FudbalskiKlub.Model.Requests;
 using FudbalskiKlub.Model.SearchObjects;
 using FudbalskiKlub.Services.Database1;
 using FudbalskiKlub.Services.Model;
+using FudbalskiKlub.Services.ProizvodiStateMachine;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,13 @@ namespace FudbalskiKlub.Services
         {
             entity.LozinkaSalt = GenerateSalt();
             entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, insert.Password);
+        }
+
+        public override async Task BeforeUpdate(Database1.Korisnik entity, KorisnikUpdateRequest update)
+        {
+
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, update.Password);
         }
 
 
@@ -75,15 +83,19 @@ namespace FudbalskiKlub.Services
         {
             if (search?.IsUlogaIncluded == true)
             {
-                query = query.Include("KorisnikUlogas");
+                query = query.Include("KorisnikUlogas.Uloga");
             }
             if (search?.IsTransakcijskiRacunIncluded == true)
             {
-                query = query.Include("KorisnikTransakcijskiRacuns");
+                query = query.Include("KorisnikTransakcijskiRacuns.TransakcijskiRacun");
             }
             if(search?.IsClanarinaIncluded==true)
             {
                 query = query.Include("Clanarinas");
+            }
+            if (search?.IsBolestIncluded == true)
+            {
+                query = query.Include("KorisnikBolests.Bolest");
             }
             return base.AddInclude(query, search);
         }

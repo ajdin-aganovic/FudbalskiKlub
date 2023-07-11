@@ -9,7 +9,7 @@ namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [AllowAnonymous]
+    //[AllowAnonymous]
 
     public class StadionController :
         BaseCRUDController<

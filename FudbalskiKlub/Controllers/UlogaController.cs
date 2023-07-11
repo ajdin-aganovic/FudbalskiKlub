@@ -9,7 +9,7 @@ namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize(Roles="Administrator")]
+    [Authorize(Roles = "Administrator")]
     public class UlogaController :
         BaseCRUDController<
             Uloga,

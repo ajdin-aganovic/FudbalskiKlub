@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FudbalskiKlub.Controllers
 {
-    [Authorize(Roles ="Administrator")]
+    [Authorize(Roles = "Administrator")]
+    //[AllowAnonymous]
     [ApiController]
     [Route("[controller]")]
     public class PlatumController : BaseCRUDController<Platum, Model.SearchObjects.PlatumSearchObject, Model.Requests.PlatumInsertRequest, Model.Requests.PlatumUpdateRequest>

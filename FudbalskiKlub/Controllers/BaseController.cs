@@ -30,5 +30,7 @@ namespace FudbalskiKlub.Controllers
         {
             return await _service.GetById(id);
         }
+
+        
     }
 }

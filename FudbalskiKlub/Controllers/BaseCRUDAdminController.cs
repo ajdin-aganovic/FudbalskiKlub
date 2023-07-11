@@ -8,12 +8,12 @@ namespace FudbalskiKlub.Controllers
 {
 
     [Route("[controller]")]
-    public class BaseCRUDController<T, TSearch, TInsert, TUpdate> : BaseController<T, TSearch> where T : class where TSearch : class
+    public class BaseCRUDAdminController<T, TSearch, TInsert, TUpdate> : BaseController<T, TSearch> where T : class where TSearch : class
     {
         protected new readonly ICRUDService<T, TSearch, TInsert, TUpdate> _service;
         protected new readonly ILogger<BaseController<T, TSearch>> _logger;
 
-        public BaseCRUDController(ILogger<BaseController<T, TSearch>> logger, ICRUDService<T, TSearch, TInsert, TUpdate> service)
+        public BaseCRUDAdminController(ILogger<BaseController<T, TSearch>> logger, ICRUDService<T, TSearch, TInsert, TUpdate> service)
             : base(logger, service)
         {
             _logger = logger;
@@ -21,12 +21,16 @@ namespace FudbalskiKlub.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
+
         public virtual async Task<T> Insert([FromBody]TInsert insert)
         {
             return await _service.Insert(insert);
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")]
+
         public virtual async Task<T> Update(int id, [FromBody]TUpdate update)
         {
             return await _service.Update(id, update);

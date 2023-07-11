@@ -9,7 +9,7 @@ namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [AllowAnonymous]
+    [Authorize(Roles = "Administrator, Glavni trener, Pomoćni trener")]
     public class PozicijaController :
         BaseCRUDController<
             Pozicija,

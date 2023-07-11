@@ -12,7 +12,7 @@ namespace FudbalskiKlub.Controllers
     [ApiController]
     [Route("[controller]")]
     public class KorisnikController : 
-        BaseCRUDController<
+        BaseCRUDAdminController<
             Korisnik, 
             Model.SearchObjects.KorisnikSearchObject, Model.Requests.KorisnikInsertRequest, Model.Requests.KorisnikUpdateRequest>
     {
@@ -20,11 +20,5 @@ namespace FudbalskiKlub.Controllers
         {
 
         }
-
-        //[HttpGet()]
-        //public async Task<Services.Database1.Korisnik> Get([FromQuery] KorisnikSearchObject? search = null)
-        //{
-        //    return await (_service as Korisnik).Get(search);
-        //}
     }
 }

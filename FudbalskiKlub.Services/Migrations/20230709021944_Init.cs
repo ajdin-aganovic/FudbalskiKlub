@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FudbalskiKlub.Services.Migrations
 {
     /// <inheritdoc />
-    public partial class novamigracija1 : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -75,6 +75,21 @@ namespace FudbalskiKlub.Services.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__Stadion__DDB3F389E8282FAE", x => x.StadionId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TransakcijskiRacun",
+                columns: table => new
+                {
+                    TransakcijskiRacunId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BrojRacuna = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: true),
+                    AdresaPrebivalista = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    NazivBanke = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Transakc__2F0E2ED1FF943D6E", x => x.TransakcijskiRacunId);
                 });
 
             migrationBuilder.CreateTable(
@@ -176,27 +191,6 @@ namespace FudbalskiKlub.Services.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "TransakcijskiRacun",
-                columns: table => new
-                {
-                    TransakcijskiRacunId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BrojRacuna = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: true),
-                    KorisnikId = table.Column<int>(type: "int", nullable: true),
-                    AdresaPrebivalista = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    NazivBanke = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__Transakc__2F0E2ED1FF943D6E", x => x.TransakcijskiRacunId);
-                    table.ForeignKey(
-                        name: "FK_KorisnikTransakcijskiRacun",
-                        column: x => x.KorisnikId,
-                        principalTable: "Korisnik",
-                        principalColumn: "KorisnikId");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "KorisnikPozicija",
                 columns: table => new
                 {
@@ -238,6 +232,52 @@ namespace FudbalskiKlub.Services.Migrations
                         column: x => x.StadionId,
                         principalTable: "Stadion",
                         principalColumn: "StadionId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "KorisnikTransakcijskiRacun",
+                columns: table => new
+                {
+                    KorisnikTransakcijskiRacunId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    KorisnikId = table.Column<int>(type: "int", nullable: false),
+                    TransakcijskiRacunId = table.Column<int>(type: "int", nullable: false),
+                    DatumIzmjene = table.Column<DateTime>(type: "datetime", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Korisnik__1608726E51D03733", x => x.KorisnikTransakcijskiRacunId);
+                    table.ForeignKey(
+                        name: "FK_KorisnikKorisnikTransakcijskiRacun",
+                        column: x => x.KorisnikId,
+                        principalTable: "Korisnik",
+                        principalColumn: "KorisnikId");
+                    table.ForeignKey(
+                        name: "FK_TransakcijskiRacunKorisnikTransakcijskiRacun",
+                        column: x => x.TransakcijskiRacunId,
+                        principalTable: "TransakcijskiRacun",
+                        principalColumn: "TransakcijskiRacunId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Plata",
+                columns: table => new
+                {
+                    PlataId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TransakcijskiRacunId = table.Column<int>(type: "int", nullable: true),
+                    StateMachine = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
+                    Iznos = table.Column<double>(type: "float", nullable: true),
+                    DatumSlanja = table.Column<DateTime>(type: "datetime", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Plata__373F7313BACBD819", x => x.PlataId);
+                    table.ForeignKey(
+                        name: "FK_TransakcijskiRacunPlata",
+                        column: x => x.TransakcijskiRacunId,
+                        principalTable: "TransakcijskiRacun",
+                        principalColumn: "TransakcijskiRacunId");
                 });
 
             migrationBuilder.CreateTable(
@@ -289,27 +329,6 @@ namespace FudbalskiKlub.Services.Migrations
                         principalColumn: "UlogaId");
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Plata",
-                columns: table => new
-                {
-                    PlataId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    TransakcijskiRacunId = table.Column<int>(type: "int", nullable: true),
-                    StateMachine = table.Column<string>(type: "varchar(50)", unicode: false, maxLength: 50, nullable: true),
-                    Iznos = table.Column<double>(type: "float", nullable: true),
-                    DatumSlanja = table.Column<DateTime>(type: "datetime", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK__Plata__373F7313BACBD819", x => x.PlataId);
-                    table.ForeignKey(
-                        name: "FK_TransakcijskiRacunPlata",
-                        column: x => x.TransakcijskiRacunId,
-                        principalTable: "TransakcijskiRacun",
-                        principalColumn: "TransakcijskiRacunId");
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_Clanarina_KorisnikId",
                 table: "Clanarina",
@@ -334,6 +353,16 @@ namespace FudbalskiKlub.Services.Migrations
                 name: "IX_KorisnikPozicija_PozicijaId",
                 table: "KorisnikPozicija",
                 column: "PozicijaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KorisnikTransakcijskiRacun_KorisnikId",
+                table: "KorisnikTransakcijskiRacun",
+                column: "KorisnikId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_KorisnikTransakcijskiRacun_TransakcijskiRacunId",
+                table: "KorisnikTransakcijskiRacun",
+                column: "TransakcijskiRacunId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_KorisnikUloga_KorisnikId",
@@ -361,11 +390,6 @@ namespace FudbalskiKlub.Services.Migrations
                 column: "StadionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_TransakcijskiRacun_KorisnikId",
-                table: "TransakcijskiRacun",
-                column: "KorisnikId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_TreningStadion_StadionId",
                 table: "TreningStadion",
                 column: "StadionId");
@@ -387,6 +411,9 @@ namespace FudbalskiKlub.Services.Migrations
 
             migrationBuilder.DropTable(
                 name: "KorisnikPozicija");
+
+            migrationBuilder.DropTable(
+                name: "KorisnikTransakcijskiRacun");
 
             migrationBuilder.DropTable(
                 name: "KorisnikUloga");
@@ -416,13 +443,13 @@ namespace FudbalskiKlub.Services.Migrations
                 name: "TransakcijskiRacun");
 
             migrationBuilder.DropTable(
+                name: "Korisnik");
+
+            migrationBuilder.DropTable(
                 name: "Stadion");
 
             migrationBuilder.DropTable(
                 name: "Trening");
-
-            migrationBuilder.DropTable(
-                name: "Korisnik");
         }
     }
 }

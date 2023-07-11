@@ -1,6 +1,9 @@
 ﻿using AutoMapper;
+using FudbalskiKlub.Model;
 using FudbalskiKlub.Model.SearchObjects;
 using FudbalskiKlub.Services.Database1;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +19,11 @@ namespace FudbalskiKlub.Services
         }
 
         public virtual async Task BeforeInsert(TDb entity, TInsert insert)
+        {
+
+        }
+
+        public virtual async Task BeforeUpdate(TDb entity, TUpdate update)
         {
 
         }
@@ -41,9 +49,36 @@ namespace FudbalskiKlub.Services
             var entity = await set.FindAsync(id);
 
             _mapper.Map(update, entity);
+            await BeforeUpdate(entity, update);
 
             await _context.SaveChangesAsync();
             return _mapper.Map<T>(entity);
+        }
+
+        public virtual async Task<T> Delete(int id)
+        {
+            var set = _context.Set<TDb>();
+            
+
+            var itemToDelete = await set.FindAsync(id);
+
+            if (id <= 0)
+                throw new NotImplementedException("Not valid ID");
+            if (itemToDelete == null)
+            {
+                throw new NotImplementedException("There is no item under that ID");
+            }
+            //var entity = await _context.Set<TDb>().FindAsync(id);
+
+            //return _mapper.Map<T>(entity);
+
+            _context.Remove(itemToDelete);
+            await _context.SaveChangesAsync();
+
+            return _mapper.Map<T>(itemToDelete); // Successful deletion, return appropriate response
+
+
+
         }
 
     }

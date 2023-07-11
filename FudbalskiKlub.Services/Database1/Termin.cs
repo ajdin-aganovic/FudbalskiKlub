@@ -13,5 +13,7 @@ public partial class Termin
 
     public int? StadionId { get; set; }
 
+    public DateTime? DatumTermina { get; set; }
+
     public virtual Stadion? Stadion { get; set; }
 }

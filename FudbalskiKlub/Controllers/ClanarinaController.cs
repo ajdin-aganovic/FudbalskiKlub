@@ -9,7 +9,7 @@ namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize(Roles ="Administrator, Igrač")]
+    [Authorize(Roles = "Administrator, Glavni trener, Junior")]
     public class ClanarinaController :
         BaseCRUDController<
             Clanarina,

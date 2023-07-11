@@ -183,6 +183,33 @@ namespace FudbalskiKlub.Services.Migrations
                     b.ToTable("KorisnikPozicija", (string)null);
                 });
 
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikTransakcijskiRacun", b =>
+                {
+                    b.Property<int>("KorisnikTransakcijskiRacunId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("KorisnikTransakcijskiRacunId"));
+
+                    b.Property<DateTime?>("DatumIzmjene")
+                        .HasColumnType("datetime");
+
+                    b.Property<int>("KorisnikId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TransakcijskiRacunId")
+                        .HasColumnType("int");
+
+                    b.HasKey("KorisnikTransakcijskiRacunId")
+                        .HasName("PK__Korisnik__1608726E51D03733");
+
+                    b.HasIndex("KorisnikId");
+
+                    b.HasIndex("TransakcijskiRacunId");
+
+                    b.ToTable("KorisnikTransakcijskiRacun", (string)null);
+                });
+
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikUloga", b =>
                 {
                     b.Property<int>("KorisnikUlogaId")
@@ -376,9 +403,6 @@ namespace FudbalskiKlub.Services.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
 
-                    b.Property<int?>("KorisnikId")
-                        .HasColumnType("int");
-
                     b.Property<string>("NazivBanke")
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -386,8 +410,6 @@ namespace FudbalskiKlub.Services.Migrations
 
                     b.HasKey("TransakcijskiRacunId")
                         .HasName("PK__Transakc__2F0E2ED1FF943D6E");
-
-                    b.HasIndex("KorisnikId");
 
                     b.ToTable("TransakcijskiRacun", (string)null);
                 });
@@ -510,6 +532,25 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("Pozicija");
                 });
 
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikTransakcijskiRacun", b =>
+                {
+                    b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
+                        .WithMany("KorisnikTransakcijskiRacuns")
+                        .HasForeignKey("KorisnikId")
+                        .IsRequired()
+                        .HasConstraintName("FK_KorisnikKorisnikTransakcijskiRacun");
+
+                    b.HasOne("FudbalskiKlub.Services.Database1.TransakcijskiRacun", "TransakcijskiRacun")
+                        .WithMany("KorisnikTransakcijskiRacuns")
+                        .HasForeignKey("TransakcijskiRacunId")
+                        .IsRequired()
+                        .HasConstraintName("FK_TransakcijskiRacunKorisnikTransakcijskiRacun");
+
+                    b.Navigation("Korisnik");
+
+                    b.Navigation("TransakcijskiRacun");
+                });
+
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.KorisnikUloga", b =>
                 {
                     b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
@@ -559,16 +600,6 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("Stadion");
                 });
 
-            modelBuilder.Entity("FudbalskiKlub.Services.Database1.TransakcijskiRacun", b =>
-                {
-                    b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
-                        .WithMany("TransakcijskiRacuns")
-                        .HasForeignKey("KorisnikId")
-                        .HasConstraintName("FK_KorisnikTransakcijskiRacun");
-
-                    b.Navigation("Korisnik");
-                });
-
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TreningStadion", b =>
                 {
                     b.HasOne("FudbalskiKlub.Services.Database1.Stadion", "Stadion")
@@ -599,11 +630,11 @@ namespace FudbalskiKlub.Services.Migrations
 
                     b.Navigation("KorisnikPozicijas");
 
+                    b.Navigation("KorisnikTransakcijskiRacuns");
+
                     b.Navigation("KorisnikUlogas");
 
                     b.Navigation("Statistikas");
-
-                    b.Navigation("TransakcijskiRacuns");
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Pozicija", b =>
@@ -620,6 +651,8 @@ namespace FudbalskiKlub.Services.Migrations
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TransakcijskiRacun", b =>
                 {
+                    b.Navigation("KorisnikTransakcijskiRacuns");
+
                     b.Navigation("Plata");
                 });
 

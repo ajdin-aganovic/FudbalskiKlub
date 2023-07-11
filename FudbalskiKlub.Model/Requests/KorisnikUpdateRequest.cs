@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,12 +9,21 @@ namespace FudbalskiKlub.Model.Requests
 {
     public class KorisnikUpdateRequest
     {
+        public string? Ime { get; set; }
+
+        public string? Prezime { get; set; }
 
         public string? KorisnickoIme { get; set; }
 
         public string? Email { get; set; }
+        [Compare("PasswordPotvrda", ErrorMessage = "Passwords do not match.")]
+        public string? Password { get; set; }
+
+        [Compare("Password", ErrorMessage = "Passwords do not match.")]
+        public string? PasswordPotvrda { get; set; }
 
         public string? StrucnaSprema { get; set; }
+        public DateTime? DatumRodjenja { get; set; }
 
         public bool? PodUgovorom { get; set; }
 
