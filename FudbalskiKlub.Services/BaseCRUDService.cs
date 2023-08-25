@@ -14,8 +14,16 @@ namespace FudbalskiKlub.Services
         public BaseCRUDService(MiniafkContext context, IMapper mapper) : base(context, mapper)
         {
         }
+        //public virtual async Task Login(string username, string password)
+        //{
+
+        //}
 
         public virtual async Task BeforeInsert(TDb entity, TInsert insert)
+        {
+
+        }
+        public virtual async Task BeforeUpdate(TDb entity, TUpdate update)
         {
 
         }
@@ -40,7 +48,20 @@ namespace FudbalskiKlub.Services
 
             var entity = await set.FindAsync(id);
 
+            await BeforeUpdate(entity, update);
             _mapper.Map(update, entity);
+
+            await _context.SaveChangesAsync();
+            return _mapper.Map<T>(entity);
+        }
+
+        public virtual async Task<T> Delete(int id)
+        {
+            var set = _context.Set<TDb>();
+
+            var entity = await set.FindAsync(id);
+
+            set.Remove(entity);
 
             await _context.SaveChangesAsync();
             return _mapper.Map<T>(entity);

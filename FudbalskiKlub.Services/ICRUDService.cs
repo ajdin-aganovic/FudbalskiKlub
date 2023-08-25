@@ -8,6 +8,7 @@ namespace FudbalskiKlub.Services
 {
     public interface ICRUDService<T, TSearch, TInsert, TUpdate> : IService<T, TSearch> where TSearch : class
     {
+        Task<T> Delete(int id);
         Task<T> Insert(TInsert insert);
         Task<T> Update(int id, TUpdate update);
     }

@@ -20,6 +20,12 @@ namespace FudbalskiKlub.Controllers
 
         }
 
+        //[HttpPost("login")]
+        //public async Task<IActionResult> Login([FromBody] LoginRequest model)
+        //{
+
+        //}
+
         //[HttpGet()]
         //public async Task<Services.Database1.Korisnik> Get([FromQuery] KorisnikSearchObject? search = null)
         //{
