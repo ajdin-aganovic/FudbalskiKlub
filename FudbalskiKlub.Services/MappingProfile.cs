@@ -64,6 +64,9 @@ namespace FudbalskiKlub.Services
             CreateMap<UlogaInsertRequest, Database1.Uloga>();
             CreateMap<UlogaUpdateRequest, Database1.Uloga>();
 
+            CreateMap<KorisnikChangePasswordRequest, Database1.Korisnik>();
+
+
         }
     }
 

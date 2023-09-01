@@ -1,0 +1,17 @@
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Services.deps.json
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Services.runtimeconfig.json
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Services.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Services.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\bin\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.csproj.AssemblyReference.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.GeneratedMSBuildEditorConfig.editorconfig
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.AssemblyInfoInputs.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.AssemblyInfo.cs
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.csproj.CoreCompileInputs.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.csproj.CopyComplete
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\refint\FudbalskiKlub.Services.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\FudbalskiKlub.Services.genruntimeconfig.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Services\obj\Debug\net6.0\ref\FudbalskiKlub.Services.dll

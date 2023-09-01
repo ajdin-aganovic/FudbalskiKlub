@@ -1,0 +1,12 @@
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.deps.json
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.csproj.AssemblyReference.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.AssemblyInfoInputs.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.AssemblyInfo.cs
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.csproj.CoreCompileInputs.cache
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\refint\FudbalskiKlub.Model.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\ref\FudbalskiKlub.Model.dll

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wSc1+0yNnQc5/sGc3pXVHEYTBqt54vUmeySy03TruCs31ombaoTEj2G4ZXQXDmJuQAPQ3JdJ/+UgB3RoV4HM8A==",
+  "success": true,
+  "projectFilePath": "C:\\Fakultet\\FIT-III-godina\\RS-II\\SeminarskiRad\\Backend\\FudbalskiKlub\\FudbalskiKlub.Subscriber\\FudbalskiKlub.Subscriber.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aida-\\.nuget\\packages\\easynetq\\7.5.3\\easynetq.7.5.3.nupkg.sha512",
+    "C:\\Users\\aida-\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.18.1\\microsoft.visualstudio.azure.containers.tools.targets.1.18.1.nupkg.sha512",
+    "C:\\Users\\aida-\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\aida-\\.nuget\\packages\\rabbitmq.client\\6.5.0\\rabbitmq.client.6.5.0.nupkg.sha512",
+    "C:\\Users\\aida-\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
+    "C:\\Users\\aida-\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

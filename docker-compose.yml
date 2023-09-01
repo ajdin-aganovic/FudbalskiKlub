@@ -1,0 +1,56 @@
+version: '3'
+services:
+#mssql docker
+  afkdatabase-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=ASDqwe123!
+      - MSSQL_PID=Developer
+    ports:
+      - 1401:1433
+    expose:
+      - 1433
+    networks:
+      - afknet2023
+
+  afkapi:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      # - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
+      - ConnectionStrings:DefaultConnection=Server=miniafk;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - 7181:7181 #bilo 7048:7048
+    networks:
+      - afknet2023
+    links:
+      - afkdatabase-sql
+    depends_on:
+      - afkdatabase-sql
+      
+networks:
+  afknet2023:
+    driver: bridge      
+    
+    # Dopisana izmjena za usera sa 'sa' na 'sa1'
+     # stara - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql,1433;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
+     
+     # afkapi:
+    # restart: unless-stopped
+    # build:
+      # context: .
+    # environment:
+      # - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql,1433;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
+      # - ASPNETCORE_ENVIRONMENT=Development
+    # ports:
+      # - 7048:7048
+    # networks:
+      # - afknet2023
+    # links:
+      # - afkdatabase-sql
+    # depends_on:
+      # - afkdatabase-sql

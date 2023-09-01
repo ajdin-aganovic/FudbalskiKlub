@@ -28,7 +28,7 @@ namespace FudbalskiKlub.Services.Model
         public DateTime? PodUgovoromOd { get; set; }
 
         public DateTime? PodUgovoromDo { get; set; }
-        public string? Uloga { get; set; }
+        //public string? Uloga { get; set; }
 
         public virtual ICollection<KorisnikTransakcijskiRacun> KorisnikTransakcijskiRacuns { get; set; } = new List<KorisnikTransakcijskiRacun>();
 

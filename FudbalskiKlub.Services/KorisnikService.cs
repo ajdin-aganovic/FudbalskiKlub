@@ -13,6 +13,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace FudbalskiKlub.Services
 {
@@ -23,6 +24,41 @@ namespace FudbalskiKlub.Services
         {
         }
 
+        //public async Task<Model.Korisnik> Login(string username, string password)
+        //{
+        //    var entity = await _context.Korisniks.FirstOrDefaultAsync(x => x.KorisnickoIme == username);
+        //    var hash = GenerateHash(entity.LozinkaSalt, password);
+        //    if (entity == null)
+        //    {
+        //        return null;
+        //    }
+        //    if(hash!=entity.LozinkaHash)
+        //    {
+        //        return null;
+
+        //    }
+        //    return _mapper.Map<Model.Korisnik>(entity);
+        //}
+
+        public Model.Korisnik changePassword(int id, KorisnikChangePasswordRequest kcpr)
+        {
+            var pronadjeni = _context.Korisniks.Find(id);
+            if (pronadjeni == null)
+            {
+                throw new NotImplementedException("Loš id");
+            }
+            else
+            {
+                var saltirani = GenerateSalt();
+                var novi = GenerateHash(saltirani, kcpr.Password);
+                pronadjeni.LozinkaHash = novi;
+                pronadjeni.LozinkaSalt = saltirani;
+            }
+
+            _context.SaveChanges();
+            return _mapper.Map<Model.Korisnik>(pronadjeni);
+        }
+
         public override async Task BeforeInsert(Database1.Korisnik entity, KorisnikInsertRequest insert)
         {
             entity.LozinkaSalt = GenerateSalt();
@@ -31,8 +67,8 @@ namespace FudbalskiKlub.Services
 
         public override async Task BeforeUpdate(Database1.Korisnik entity, KorisnikUpdateRequest update)
         {
-            entity.LozinkaSalt = GenerateSalt();
-            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, update.Password);
+        //    entity.LozinkaSalt = GenerateSalt();
+        //    entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, update.Password);
         }
 
         public static string GenerateSalt()
@@ -57,6 +93,8 @@ namespace FudbalskiKlub.Services
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
+
+
 
         public override IQueryable<Database1.Korisnik> AddFilter(IQueryable<Database1.Korisnik> query, KorisnikSearchObject? search = null)
         {
@@ -84,7 +122,7 @@ namespace FudbalskiKlub.Services
         {
             if (search?.IsUlogaIncluded == true)
             {
-                query = query.Include("KorisnikUlogas");
+                query = query.Include("KorisnikUlogas.Uloga");
             }
             if (search?.IsTransakcijskiRacunIncluded == true)
             {
@@ -99,16 +137,16 @@ namespace FudbalskiKlub.Services
 
         public async Task<Model.Korisnik> Login(string username, string password)
         {
-            var entity = await _context.KorisnikUlogas.FirstOrDefaultAsync(x => x.Korisnik.KorisnickoIme == username);
+            var entity = await _context.Korisniks.Include("KorisnikUlogas.Uloga").FirstOrDefaultAsync(x => x.Email == username);
 
             if (entity == null)
             {
                 return null;
             }
 
-            var hash = GenerateHash(entity.Korisnik.LozinkaSalt!, password);
+            var hash = GenerateHash(entity.LozinkaSalt!, password);
 
-            if (hash != entity.Korisnik.LozinkaHash)
+            if (hash != entity.LozinkaHash)
             {
                 return null;
             }
@@ -226,5 +264,4 @@ namespace FudbalskiKlub.Services
         public float Label { get; set; }
     }
 
-}
 }
