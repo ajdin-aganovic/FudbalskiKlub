@@ -8,7 +8,12 @@ namespace FudbalskiKlub.Model.Requests
 {
     public class TransakcijskiRacunUpdateRequest
     {
+        public string? BrojRacuna { get; set; }
+
         public string? AdresaPrebivalista { get; set; }
+
+        public string? NazivBanke { get; set; }
+        public int? KorisnikId { get; set; }
 
     }
 }

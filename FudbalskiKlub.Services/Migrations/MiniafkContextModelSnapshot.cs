@@ -129,6 +129,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("Uloga")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("KorisnikId")
                         .HasName("PK__Korisnik__80B06D41D28B3EED");
 
@@ -402,6 +405,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasMaxLength(30)
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
+
+                    b.Property<int?>("KorisnikId")
+                        .HasColumnType("int");
 
                     b.Property<string>("NazivBanke")
                         .HasMaxLength(50)

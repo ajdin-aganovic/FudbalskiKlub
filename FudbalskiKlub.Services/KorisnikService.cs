@@ -115,6 +115,10 @@ namespace FudbalskiKlub.Services
             {
                 filteredQuery = filteredQuery.Where(x => x.PodUgovorom==search.PodUgovorom);
             }
+            if(!string.IsNullOrWhiteSpace(search?.Uloga))
+            {
+                filteredQuery = filteredQuery.Where(x => x.Uloga.Contains(search.Uloga));
+            }
             return filteredQuery;
         }
 
@@ -137,7 +141,7 @@ namespace FudbalskiKlub.Services
 
         public async Task<Model.Korisnik> Login(string username, string password)
         {
-            var entity = await _context.Korisniks.Include("KorisnikUlogas.Uloga").FirstOrDefaultAsync(x => x.Email == username);
+            var entity = await _context.Korisniks.Include("KorisnikUlogas.Uloga").FirstOrDefaultAsync(x => x.KorisnickoIme == username);
 
             if (entity == null)
             {

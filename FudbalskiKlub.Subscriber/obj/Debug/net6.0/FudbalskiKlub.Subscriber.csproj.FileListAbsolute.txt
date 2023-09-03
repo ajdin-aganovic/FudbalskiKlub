@@ -10,3 +10,6 @@ C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKl
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\refint\FudbalskiKlub.Subscriber.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\FudbalskiKlub.Subscriber.pdb
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\ref\FudbalskiKlub.Subscriber.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\FudbalskiKlub.Subscriber.csproj.CopyComplete

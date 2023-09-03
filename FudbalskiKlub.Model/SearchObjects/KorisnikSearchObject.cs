@@ -11,6 +11,7 @@ namespace FudbalskiKlub.Model.SearchObjects
         public string? KorisnickoIme { get; set; }
         public string? StrucnaSprema { get; set; }
         public bool? PodUgovorom { get; set; }
+        public string? Uloga { get; set; }
         public bool? IsTransakcijskiRacunIncluded { get; set; }
         public bool? IsUlogaIncluded { get; set; }
         public bool? IsClanarinaIncluded { get; set; }

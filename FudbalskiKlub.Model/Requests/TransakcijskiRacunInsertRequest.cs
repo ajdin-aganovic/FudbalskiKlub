@@ -14,6 +14,7 @@ namespace FudbalskiKlub.Model.Requests
         public string? AdresaPrebivalista { get; set; }
 
         public string? NazivBanke { get; set; }
+        public int? KorisnikId { get; set; }
 
     }
 }

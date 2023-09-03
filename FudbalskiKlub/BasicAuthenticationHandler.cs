@@ -50,15 +50,18 @@ namespace FudbalskiKlub
                 var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.Name, user.Ime ),
-                    new Claim(ClaimTypes.NameIdentifier, user.KorisnickoIme )
+                    new Claim(ClaimTypes.NameIdentifier, user.KorisnickoIme ),
+                    new Claim(ClaimTypes.Role, user.Uloga)
                 };
 
+
+
+                //foreach(var role in user.KorisnikUlogas)
+                //{
+                //    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.NazivUloge));
+                //}
+
                 
-                
-                foreach(var role in user.KorisnikUlogas)
-                {
-                    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.NazivUloge));
-                }
 
                 var identity = new ClaimsIdentity(claims,Scheme.Name);
 

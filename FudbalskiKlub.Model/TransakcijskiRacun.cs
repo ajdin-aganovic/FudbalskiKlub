@@ -12,6 +12,7 @@ namespace FudbalskiKlub.Services.Model
         public string? AdresaPrebivalista { get; set; }
 
         public string? NazivBanke { get; set; }
+        public int? KorisnikId { get; set; }
 
         public virtual ICollection<KorisnikTransakcijskiRacun> KorisnikTransakcijskiRacuns { get; set; } = new List<KorisnikTransakcijskiRacun>();
 

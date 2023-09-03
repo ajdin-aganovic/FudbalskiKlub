@@ -35,6 +35,6 @@ namespace FudbalskiKlub.Model.Requests
         public DateTime? PodUgovoromOd { get; set; }
 
         public DateTime? PodUgovoromDo { get; set; }
-        //public string? Uloga { get; set; }
+        public string? Uloga { get; set; }
     }
 }
