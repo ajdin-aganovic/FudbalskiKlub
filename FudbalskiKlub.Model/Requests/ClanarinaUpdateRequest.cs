@@ -9,6 +9,7 @@ namespace FudbalskiKlub.Model.Requests
     public class ClanarinaUpdateRequest
     {
 
+        public int? KorisnikId { get; set; }
         public double? IznosClanarine { get; set; }
 
         public double? Dug { get; set; }
