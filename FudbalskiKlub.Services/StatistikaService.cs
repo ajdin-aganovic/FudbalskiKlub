@@ -19,6 +19,19 @@ namespace FudbalskiKlub.Services
         {
         }
 
+        public override IQueryable<Database1.Statistika> AddFilter(IQueryable<Database1.Statistika> query, StatistikaSearchObject? search = null)
+        {
+            var filteredQuery = base.AddFilter(query, search);
+
+            if (search.IsIgracMjeseca.HasValue)
+            {
+                filteredQuery = filteredQuery.Where(x => x.IgracMjeseca==search.IsIgracMjeseca);
+            }
+
+
+            return filteredQuery;
+        }
+
         public override IQueryable<Database1.Statistika> AddInclude(IQueryable<Database1.Statistika> query, StatistikaSearchObject? search = null)
         {
             if (search?.IsKorisnikIncluded == true)

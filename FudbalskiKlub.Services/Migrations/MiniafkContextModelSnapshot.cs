@@ -57,6 +57,9 @@ namespace FudbalskiKlub.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ClanarinaId"));
 
+                    b.Property<DateTime?>("DatumPlacanja")
+                        .HasColumnType("datetime");
+
                     b.Property<double?>("Dug")
                         .HasColumnType("float");
 
@@ -65,6 +68,9 @@ namespace FudbalskiKlub.Services.Migrations
 
                     b.Property<int?>("KorisnikId")
                         .HasColumnType("int");
+
+                    b.Property<bool?>("Placena")
+                        .HasColumnType("bit");
 
                     b.HasKey("ClanarinaId")
                         .HasName("PK__Clanarin__C51E3B9744FDF577");
@@ -130,7 +136,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Uloga")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(20)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("KorisnikId")
                         .HasName("PK__Korisnik__80B06D41D28B3EED");
@@ -240,6 +248,60 @@ namespace FudbalskiKlub.Services.Migrations
                     b.ToTable("KorisnikUloga", (string)null);
                 });
 
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.Narudzba", b =>
+                {
+                    b.Property<int>("NarudzbaId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NarudzbaId"));
+
+                    b.Property<string>("BrojNarudzba")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<DateTime?>("Datum")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Status")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("NarudzbaId")
+                        .HasName("PK__Narudzba__FBEC1377D43365F9");
+
+                    b.ToTable("Narudzba", (string)null);
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.NarudzbaStavke", b =>
+                {
+                    b.Property<int>("NarudzbaStavkeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NarudzbaStavkeId"));
+
+                    b.Property<int?>("Kolicina")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NarudzbaId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProizvodId")
+                        .HasColumnType("int");
+
+                    b.HasKey("NarudzbaStavkeId")
+                        .HasName("PK__Narudzba__7DC8EFED3DA2E1FE");
+
+                    b.HasIndex("NarudzbaId");
+
+                    b.HasIndex("ProizvodId");
+
+                    b.ToTable("NarudzbaStavke", (string)null);
+                });
+
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Platum", b =>
                 {
                     b.Property<int>("PlataId")
@@ -292,6 +354,41 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasName("PK__Pozicija__C25169AEA95BEC4D");
 
                     b.ToTable("Pozicija", (string)null);
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.Proizvod", b =>
+                {
+                    b.Property<int>("ProizvodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProizvodId"));
+
+                    b.Property<double?>("Cijena")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Kategorija")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<int?>("Kolicina")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Naziv")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Sifra")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
+                    b.HasKey("ProizvodId")
+                        .HasName("PK__Proizvod__21A8BFF81155EE96");
+
+                    b.ToTable("Proizvod", (string)null);
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Stadion", b =>
@@ -367,6 +464,11 @@ namespace FudbalskiKlub.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TerminId"));
 
+                    b.Property<string>("Rezultat")
+                        .HasMaxLength(50)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(50)");
+
                     b.Property<string>("SifraTermina")
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -417,6 +519,8 @@ namespace FudbalskiKlub.Services.Migrations
                     b.HasKey("TransakcijskiRacunId")
                         .HasName("PK__Transakc__2F0E2ED1FF943D6E");
 
+                    b.HasIndex("KorisnikId");
+
                     b.ToTable("TransakcijskiRacun", (string)null);
                 });
 
@@ -427,6 +531,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TreningId"));
+
+                    b.Property<DateTime?>("DatumTreninga")
+                        .HasColumnType("datetime");
 
                     b.Property<string>("NazivTreninga")
                         .HasMaxLength(50)
@@ -576,6 +683,23 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("Uloga");
                 });
 
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.NarudzbaStavke", b =>
+                {
+                    b.HasOne("FudbalskiKlub.Services.Database1.Narudzba", "Narudzba")
+                        .WithMany("NarudzbaStavkes")
+                        .HasForeignKey("NarudzbaId")
+                        .HasConstraintName("FK_NarudzbaStavkeNarudzba");
+
+                    b.HasOne("FudbalskiKlub.Services.Database1.Proizvod", "Proizvod")
+                        .WithMany("NarudzbaStavkes")
+                        .HasForeignKey("ProizvodId")
+                        .HasConstraintName("FK_NarudzbaStavkeProizvod");
+
+                    b.Navigation("Narudzba");
+
+                    b.Navigation("Proizvod");
+                });
+
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Platum", b =>
                 {
                     b.HasOne("FudbalskiKlub.Services.Database1.TransakcijskiRacun", "TransakcijskiRacun")
@@ -604,6 +728,16 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasConstraintName("FK_StadionTermin");
 
                     b.Navigation("Stadion");
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.TransakcijskiRacun", b =>
+                {
+                    b.HasOne("FudbalskiKlub.Services.Database1.Korisnik", "Korisnik")
+                        .WithMany("TransakcijskiRacuns")
+                        .HasForeignKey("KorisnikId")
+                        .HasConstraintName("FK_KorisnikTransakcijski");
+
+                    b.Navigation("Korisnik");
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.TreningStadion", b =>
@@ -641,11 +775,23 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Navigation("KorisnikUlogas");
 
                     b.Navigation("Statistikas");
+
+                    b.Navigation("TransakcijskiRacuns");
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.Narudzba", b =>
+                {
+                    b.Navigation("NarudzbaStavkes");
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Pozicija", b =>
                 {
                     b.Navigation("KorisnikPozicijas");
+                });
+
+            modelBuilder.Entity("FudbalskiKlub.Services.Database1.Proizvod", b =>
+                {
+                    b.Navigation("NarudzbaStavkes");
                 });
 
             modelBuilder.Entity("FudbalskiKlub.Services.Database1.Stadion", b =>

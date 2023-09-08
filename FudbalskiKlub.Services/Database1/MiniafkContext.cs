@@ -29,9 +29,15 @@ public partial class MiniafkContext : DbContext
 
     public virtual DbSet<KorisnikUloga> KorisnikUlogas { get; set; }
 
+    public virtual DbSet<Narudzba> Narudzbas { get; set; }
+
+    public virtual DbSet<NarudzbaStavke> NarudzbaStavkes { get; set; }
+
     public virtual DbSet<Platum> Plata { get; set; }
 
     public virtual DbSet<Pozicija> Pozicijas { get; set; }
+
+    public virtual DbSet<Proizvod> Proizvods { get; set; }
 
     public virtual DbSet<Stadion> Stadions { get; set; }
 
@@ -49,7 +55,7 @@ public partial class MiniafkContext : DbContext
 
 //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=miniafk; user=sa1; Password=ASDqwe123!; TrustServerCertificate=True");
+//        => optionsBuilder.UseSqlServer("Data Source=localhost; Initial Catalog=miniafk; user=sa1; Password=ASDqwe123!; TrustServerCertificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -72,6 +78,8 @@ public partial class MiniafkContext : DbContext
             entity.HasKey(e => e.ClanarinaId).HasName("PK__Clanarin__C51E3B9744FDF577");
 
             entity.ToTable("Clanarina");
+
+            entity.Property(e => e.DatumPlacanja).HasColumnType("datetime");
 
             entity.HasOne(d => d.Korisnik).WithMany(p => p.Clanarinas)
                 .HasForeignKey(d => d.KorisnikId)
@@ -107,6 +115,9 @@ public partial class MiniafkContext : DbContext
                 .IsUnicode(false);
             entity.Property(e => e.StrucnaSprema)
                 .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Uloga)
+                .HasMaxLength(20)
                 .IsUnicode(false);
         });
 
@@ -180,6 +191,36 @@ public partial class MiniafkContext : DbContext
                 .HasConstraintName("FK_UlogaKorisnikUloga");
         });
 
+        modelBuilder.Entity<Narudzba>(entity =>
+        {
+            entity.HasKey(e => e.NarudzbaId).HasName("PK__Narudzba__FBEC1377D43365F9");
+
+            entity.ToTable("Narudzba");
+
+            entity.Property(e => e.BrojNarudzba)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Datum).HasColumnType("datetime");
+            entity.Property(e => e.Status)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<NarudzbaStavke>(entity =>
+        {
+            entity.HasKey(e => e.NarudzbaStavkeId).HasName("PK__Narudzba__7DC8EFED3DA2E1FE");
+
+            entity.ToTable("NarudzbaStavke");
+
+            entity.HasOne(d => d.Narudzba).WithMany(p => p.NarudzbaStavkes)
+                .HasForeignKey(d => d.NarudzbaId)
+                .HasConstraintName("FK_NarudzbaStavkeNarudzba");
+
+            entity.HasOne(d => d.Proizvod).WithMany(p => p.NarudzbaStavkes)
+                .HasForeignKey(d => d.ProizvodId)
+                .HasConstraintName("FK_NarudzbaStavkeProizvod");
+        });
+
         modelBuilder.Entity<Platum>(entity =>
         {
             entity.HasKey(e => e.PlataId).HasName("PK__Plata__373F7313BACBD819");
@@ -204,6 +245,23 @@ public partial class MiniafkContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.NazivPozicije)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Proizvod>(entity =>
+        {
+            entity.HasKey(e => e.ProizvodId).HasName("PK__Proizvod__21A8BFF81155EE96");
+
+            entity.ToTable("Proizvod");
+
+            entity.Property(e => e.Kategorija)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Naziv)
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            entity.Property(e => e.Sifra)
                 .HasMaxLength(50)
                 .IsUnicode(false);
         });
@@ -236,6 +294,9 @@ public partial class MiniafkContext : DbContext
 
             entity.ToTable("Termin");
 
+            entity.Property(e => e.Rezultat)
+                .HasMaxLength(50)
+                .IsUnicode(false);
             entity.Property(e => e.SifraTermina)
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -263,6 +324,10 @@ public partial class MiniafkContext : DbContext
             entity.Property(e => e.NazivBanke)
                 .HasMaxLength(50)
                 .IsUnicode(false);
+
+            entity.HasOne(d => d.Korisnik).WithMany(p => p.TransakcijskiRacuns)
+                .HasForeignKey(d => d.KorisnikId)
+                .HasConstraintName("FK_KorisnikTransakcijski");
         });
 
         modelBuilder.Entity<Trening>(entity =>
@@ -271,6 +336,7 @@ public partial class MiniafkContext : DbContext
 
             entity.ToTable("Trening");
 
+            entity.Property(e => e.DatumTreninga).HasColumnType("datetime");
             entity.Property(e => e.NazivTreninga)
                 .HasMaxLength(50)
                 .IsUnicode(false);

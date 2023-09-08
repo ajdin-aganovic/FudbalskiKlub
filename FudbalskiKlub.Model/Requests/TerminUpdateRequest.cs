@@ -13,5 +13,6 @@ namespace FudbalskiKlub.Model.Requests
         public string? TipTermina { get; set; }
 
         public int? StadionId { get; set; }
+        public string? Rezultat { get; set; }
     }
 }

@@ -30,6 +30,10 @@ namespace FudbalskiKlub.Services
             {
                 filteredQuery = filteredQuery.Where(x => x.IznosClanarine < search.MaxIznosClanarine);
             }
+            if (search.Placena.HasValue)
+            {
+                filteredQuery = filteredQuery.Where(x => x.Placena == search.Placena);
+            }
 
             return filteredQuery;
         }

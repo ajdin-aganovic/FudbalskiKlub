@@ -81,9 +81,9 @@ namespace FudbalskiKlub.Services.ProizvodiStateMachine
 
             var mappedEntity = _mapper.Map<Model.Platum>(entity);
 
-            using var bus = RabbitHutch.CreateBus("host=localhost");
+            //using var bus = RabbitHutch.CreateBus("host=localhost");
 
-            bus.PubSub.Publish(mappedEntity);
+            //bus.PubSub.Publish(mappedEntity);
 
             return mappedEntity;
         }

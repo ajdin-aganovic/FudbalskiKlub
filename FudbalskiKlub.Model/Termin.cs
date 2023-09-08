@@ -12,6 +12,7 @@ namespace FudbalskiKlub.Services.Model
         public string? TipTermina { get; set; }
 
         public int? StadionId { get; set; }
+        public string? Rezultat { get; set; }
 
         public virtual Stadion? Stadion { get; set; }
     }

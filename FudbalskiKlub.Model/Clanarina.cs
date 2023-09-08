@@ -12,6 +12,8 @@ namespace FudbalskiKlub.Services.Model
         public double? IznosClanarine { get; set; }
 
         public double? Dug { get; set; }
+        public bool? Placena { get; set; }
+        public DateTime? DatumPlacanja { get; set; }
 
         //public virtual Korisnik? Korisnik { get; set; }
     }

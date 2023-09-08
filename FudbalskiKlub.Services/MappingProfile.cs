@@ -65,6 +65,15 @@ namespace FudbalskiKlub.Services
             CreateMap<UlogaUpdateRequest, Database1.Uloga>();
 
             CreateMap<KorisnikChangePasswordRequest, Database1.Korisnik>();
+            ////////////////////////////////////////////////////////////////////////////////////
+            CreateMap<Database1.KorisnikPozicija, Model.KorisnikPozicija>();
+            CreateMap<KorisnikPozicijaInsertRequest, Database1.KorisnikPozicija>();
+            CreateMap<KorisnikPozicijaUpdateRequest, Database1.KorisnikPozicija>();
+
+            CreateMap<Database1.Proizvod, Model.Proizvod>();
+            CreateMap<ProizvodInsertRequest, Database1.Proizvod>();
+            CreateMap<ProizvodUpdateRequest, Database1.Proizvod>();
+
 
 
         }

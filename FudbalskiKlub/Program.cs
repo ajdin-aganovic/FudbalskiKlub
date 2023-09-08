@@ -20,6 +20,8 @@ builder.Services.AddTransient<ITerminService, TerminService>();
 builder.Services.AddTransient<ITransakcijskiRacunService, TransakcijskiRacunService>();
 builder.Services.AddTransient<ITreningService, TreningService>();
 builder.Services.AddTransient<IUlogaService, UlogaService>();
+builder.Services.AddTransient<IKorisnikPozicijaService, KorisnikPozicijaService>();
+builder.Services.AddTransient<IProizvodService, ProizvodService>();
 
 
 builder.Services.AddTransient<BaseState>();

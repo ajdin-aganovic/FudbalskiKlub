@@ -28,6 +28,7 @@ public partial class Korisnik
     public DateTime? PodUgovoromOd { get; set; }
 
     public DateTime? PodUgovoromDo { get; set; }
+
     public string? Uloga { get; set; }
 
     public virtual ICollection<Clanarina> Clanarinas { get; set; } = new List<Clanarina>();
@@ -41,4 +42,6 @@ public partial class Korisnik
     public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; } = new List<KorisnikUloga>();
 
     public virtual ICollection<Statistika> Statistikas { get; set; } = new List<Statistika>();
+
+    public virtual ICollection<TransakcijskiRacun> TransakcijskiRacuns { get; set; } = new List<TransakcijskiRacun>();
 }

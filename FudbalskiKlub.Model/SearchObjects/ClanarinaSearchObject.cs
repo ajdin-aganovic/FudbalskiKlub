@@ -10,7 +10,7 @@ namespace FudbalskiKlub.Model.SearchObjects
     {
         public double? MinIznosClanarine { get; set; }
         public double? MaxIznosClanarine { get; set; }
-
+        public bool? Placena { get; set; }
 
     }
 }
