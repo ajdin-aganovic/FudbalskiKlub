@@ -10,3 +10,14 @@ C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKl
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\refint\FudbalskiKlub.Model.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.pdb
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\ref\FudbalskiKlub.Model.dll
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.deps.json
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\bin\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.AssemblyInfoInputs.cache
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.AssemblyInfo.cs
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.csproj.CoreCompileInputs.cache
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.dll
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\refint\FudbalskiKlub.Model.dll
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\FudbalskiKlub.Model.pdb
+C:\sems\FudbalskiKlub\FudbalskiKlub.Model\obj\Debug\net6.0\ref\FudbalskiKlub.Model.dll

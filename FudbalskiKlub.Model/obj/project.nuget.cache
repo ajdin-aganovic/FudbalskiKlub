@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mv03+qMWK1gAwUHZlTTLIBZsypJr/NedCDbalti/qZ9OCDkRV8uT6h99x1Z8rdVVaFjuq6A5PipwuFoZNhZnBQ==",
+  "dgSpecHash": "4EZUPhz293Krwo6WB1dvxLuThEn463PzZGKyo5GH/Vvfc4rENS6R8sfnJ0joh1G/ueqUUBVmJIaOpv3zJpUYZQ==",
   "success": true,
-  "projectFilePath": "C:\\Fakultet\\FIT-III-godina\\RS-II\\SeminarskiRad\\Backend\\FudbalskiKlub\\FudbalskiKlub.Model\\FudbalskiKlub.Model.csproj",
+  "projectFilePath": "C:\\sems\\FudbalskiKlub\\FudbalskiKlub.Model\\FudbalskiKlub.Model.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
