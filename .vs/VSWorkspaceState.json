@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FudbalskiKlub",
+    "\\FudbalskiKlub\\Controllers"
   ],
+  "SelectedNode": "\\FudbalskiKlub\\Controllers\\BaseController.cs",
   "PreviewInSolutionExplorer": false
 }

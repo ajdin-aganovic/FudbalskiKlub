@@ -15,9 +15,9 @@ namespace FudbalskiKlub.Services.Model
 
         public string? Email { get; set; }
 
-        public string? LozinkaHash { get; set; }
+        //public string? LozinkaHash { get; set; }
 
-        public string? LozinkaSalt { get; set; }
+        //public string? LozinkaSalt { get; set; }
 
         public string? StrucnaSprema { get; set; }
 

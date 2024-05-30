@@ -26,6 +26,7 @@ namespace FudbalskiKlub
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             //throw new NotImplementedException();
+
             if (!Request.Headers.ContainsKey("Authorization"))
             {
                 return AuthenticateResult.Fail("Missing header");
@@ -61,9 +62,9 @@ namespace FudbalskiKlub
                 //    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.NazivUloge));
                 //}
 
-                
 
-                var identity = new ClaimsIdentity(claims,Scheme.Name);
+
+                var identity = new ClaimsIdentity(claims, Scheme.Name);
 
                 var principal = new ClaimsPrincipal(identity);
 

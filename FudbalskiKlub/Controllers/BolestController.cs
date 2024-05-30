@@ -9,7 +9,9 @@ namespace FudbalskiKlub.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    [Authorize]
+    //[Authorize]
+    [Authorize(Roles = "Administrator, Glavni trener, Doktor")]
+
     public class BolestController :
         BaseCRUDController<
             Bolest,
