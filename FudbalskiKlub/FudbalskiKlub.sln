@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FudbalskiKlub.Subscriber", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution items", "Solution items", "{066C51A3-3528-4129-82EE-92E4B1B65258}"
 	ProjectSection(SolutionItems) = preProject
+		..\docker-compose.yml = ..\docker-compose.yml
 		Docker.txt = Docker.txt
+		..\Dockerfile = ..\Dockerfile
 		Dockerfile.txt = Dockerfile.txt
 	EndProjectSection
 EndProject

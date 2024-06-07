@@ -6,7 +6,6 @@ C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKl
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\FudbalskiKlub.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\FudbalskiKlub.pdb
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\AutoMapper.dll
-C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\Azure.Core.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\Azure.Identity.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\EasyNetQ.dll
@@ -119,3 +118,7 @@ C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKl
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\obj\Debug\net6.0\FudbalskiKlub.pdb
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\obj\Debug\net6.0\FudbalskiKlub.genruntimeconfig.cache
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\obj\Debug\net6.0\ref\FudbalskiKlub.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\Mapster.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\Mapster.Core.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\Mapster.DependencyInjection.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+//using Mapster;
 using FudbalskiKlub.Model;
 using FudbalskiKlub.Model.SearchObjects;
 using FudbalskiKlub.Services.Database1;
@@ -37,7 +38,7 @@ namespace FudbalskiKlub.Services
 
             if (search?.Page.HasValue == true && search?.PageSize.HasValue == true)
             {
-                query = query.Take(search.PageSize.Value).Skip(search.Page.Value * search.PageSize.Value);
+                query = query.Skip(search.Page.Value * search.PageSize.Value).Take(search.PageSize.Value);
             }
 
             var list = await query.ToListAsync();
@@ -45,6 +46,7 @@ namespace FudbalskiKlub.Services
 
             var tmp = _mapper.Map<List<T>>(list);
             result.Result = tmp;
+            //result = Mapper.Map(list, result); //ovo je za Mapster, ali ne radi
             return result;
         }
 

@@ -85,6 +85,12 @@ namespace FudbalskiKlub.Controllers
 
         //}
 
+        //[HttpPost("login")]
+        //public Services.Model.Korisnik Login (string username, string password)
+        //{
+        //    return (_service as IKorisnikService).Login(username, password);
+        //}
+
         //[HttpGet()]
         //public async Task<Services.Database1.Korisnik> Get([FromQuery] KorisnikSearchObject? search = null)
         //{

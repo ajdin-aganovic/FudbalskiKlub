@@ -3,6 +3,7 @@ using FudbalskiKlub.Filters;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Database1;
 using FudbalskiKlub.Services.ProizvodiStateMachine;
+using Mapster;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -61,6 +62,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<MiniafkContext>(options =>
     options.UseSqlServer(connectionString));
 
+//builder.Services.AddMapster(typeof(IKorisnikService));
+builder.Services.AddMapster();
 builder.Services.AddAutoMapper(typeof(IKorisnikService));
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
@@ -85,11 +88,11 @@ app.MapControllers();
 using (var scope = app.Services.CreateScope())
 {
     var dataContext = scope.ServiceProvider.GetRequiredService<MiniafkContext>();
-    //dataContext.Database1.EnsureCreated();
+    //dataContext.Database.EnsureCreated();
 
     var conn = dataContext.Database.GetConnectionString();
 
-    //dataContext.Database1.Migrate();
+    //dataContext.Database.Migrate();
 
 
 }

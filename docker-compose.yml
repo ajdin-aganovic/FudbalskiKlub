@@ -1,56 +1,36 @@
 version: '3'
 services:
 #mssql docker
-  afkdatabase-sql:
+  miniafk-sql:
     image: mcr.microsoft.com/mssql/server:2017-latest
     restart: unless-stopped
     environment:
       - ACCEPT_EULA=Y
-      - SA_PASSWORD=ASDqwe123!
+      - SA_PASSWORD=!321ewqDSA
       - MSSQL_PID=Developer
     ports:
       - 1401:1433
     expose:
       - 1433
     networks:
-      - afknet2023
+      - miniafk2024
 
-  afkapi:
+  miniafk-api:
     restart: unless-stopped
     build:
       context: .
     environment:
-      # - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
-      - ConnectionStrings:DefaultConnection=Server=miniafk;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
+      - ConnectionStrings:DefaultConnection=Server=miniafk-sql,1433;Database=miniafk;User=sa;Password=!321ewqDSA;ConnectRetryCount=0; TrustServerCertificate=True
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - 7181:7181 #bilo 7048:7048
+      - 7181:7181
     networks:
-      - afknet2023
+      - miniafk2024
     links:
-      - afkdatabase-sql
+      - miniafk-sql
     depends_on:
-      - afkdatabase-sql
+      - miniafk-sql
       
 networks:
-  afknet2023:
-    driver: bridge      
-    
-    # Dopisana izmjena za usera sa 'sa' na 'sa1'
-     # stara - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql,1433;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
-     
-     # afkapi:
-    # restart: unless-stopped
-    # build:
-      # context: .
-    # environment:
-      # - ConnectionStrings:DefaultConnection=Server=afkdatabase-sql,1433;Database=AFKDatabaseDocker;User=sa1;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
-      # - ASPNETCORE_ENVIRONMENT=Development
-    # ports:
-      # - 7048:7048
-    # networks:
-      # - afknet2023
-    # links:
-      # - afkdatabase-sql
-    # depends_on:
-      # - afkdatabase-sql
+  miniafk2024:
+    driver: bridge  

@@ -20,8 +20,10 @@ namespace FudbalskiKlub.Services
     public class KorisnikService:
         BaseCRUDService<Model.Korisnik, Database1.Korisnik, KorisnikSearchObject, KorisnikInsertRequest, KorisnikUpdateRequest>, IKorisnikService
     {
+
         public KorisnikService(MiniafkContext context, IMapper mapper) : base(context, mapper)
         {
+
         }
 
         //public async Task<Model.Korisnik> Login(string username, string password)
@@ -126,7 +128,9 @@ namespace FudbalskiKlub.Services
         {
             if (search?.IsUlogaIncluded == true)
             {
-                query = query.Include("KorisnikUlogas.Uloga");
+                //query = query.Include("KorisnikUlogas.Uloga");
+                query = query.Include(x => x.KorisnikUlogas).ThenInclude(x => x.Uloga); //jednostavniji način
+
             }
             if (search?.IsTransakcijskiRacunIncluded == true)
             {
