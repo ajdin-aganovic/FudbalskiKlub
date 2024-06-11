@@ -86,7 +86,7 @@ namespace FudbalskiKlub.Services.ProizvodStateMachine
             //                     basicProperties: null,
             //                     body: body);
 
-            var bus = RabbitHutch.CreateBus("host=localhost");
+            var bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
 
             var mappedEntity = _mapper.Map<Model.Proizvod>(entity);
 

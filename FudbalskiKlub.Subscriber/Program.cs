@@ -8,7 +8,7 @@ using System.Text;
 
 Console.WriteLine("Hello, World!");
 
-var bus = RabbitHutch.CreateBus("host=localhost");
+var bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
 await bus.PubSub.SubscribeAsync<ProizvodActivated>("console_print", msg =>
 {
     if(msg!=null)
