@@ -13,6 +13,8 @@ namespace FudbalskiKlub.Services.Model
 
         public int? TrajanjePovredeDani { get; set; }
 
+        public bool? Izbrisan { get; set; }
+
         public virtual ICollection<KorisnikBolest> KorisnikBolests { get; set; } = new List<KorisnikBolest>();
     }
 

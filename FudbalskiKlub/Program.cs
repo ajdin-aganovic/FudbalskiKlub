@@ -3,6 +3,7 @@ using FudbalskiKlub.Filters;
 using FudbalskiKlub.Services;
 using FudbalskiKlub.Services.Database1;
 using FudbalskiKlub.Services.ProizvodiStateMachine;
+using FudbalskiKlub.Services.ProizvodStateMachine;
 using Mapster;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +30,11 @@ builder.Services.AddTransient<BaseState>();
 builder.Services.AddTransient<InitialPlatumState>();
 builder.Services.AddTransient<DraftPlatumState>();
 builder.Services.AddTransient<ActivePlatumState>();
+
+builder.Services.AddTransient<BaseProizvodState>();
+builder.Services.AddTransient<InitialProizvodState>();
+builder.Services.AddTransient<DraftProizvodState>();
+builder.Services.AddTransient<ActiveProizvodState>();
 
 // Add services to the container.
 

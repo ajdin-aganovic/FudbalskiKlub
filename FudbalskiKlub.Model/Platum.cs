@@ -18,6 +18,8 @@ namespace FudbalskiKlub.Services.Model
         public double? Iznos { get; set; }
 
         public DateTime? DatumSlanja { get; set; }
+        public bool? Izbrisan { get; set; }
+
         public virtual TransakcijskiRacun? TransakcijskiRacun { get; set; }
 
     }

@@ -30,6 +30,8 @@ namespace FudbalskiKlub.Services.Model
         public DateTime? PodUgovoromDo { get; set; }
         public string? Uloga { get; set; }
 
+        public bool? Izbrisan { get; set; }
+
         public virtual ICollection<KorisnikTransakcijskiRacun> KorisnikTransakcijskiRacuns { get; set; } = new List<KorisnikTransakcijskiRacun>();
 
         public virtual ICollection<KorisnikUloga> KorisnikUlogas { get; set; } = new List<KorisnikUloga>();

@@ -42,6 +42,8 @@ namespace FudbalskiKlub.Services
         //    return _mapper.Map<Model.Korisnik>(entity);
         //}
 
+
+
         public Model.Korisnik changePassword(int id, KorisnikChangePasswordRequest kcpr)
         {
             var pronadjeni = _context.Korisniks.Find(id);
@@ -96,7 +98,22 @@ namespace FudbalskiKlub.Services
             return Convert.ToBase64String(inArray);
         }
 
+        public async override Task<Model.Korisnik> Delete(int id)
+        {
+            var set = _context.Set<Database1.Korisnik>();
 
+            var entity = set.Find(id);
+
+            if(entity==null)
+            {
+                throw new Exception("Nije pronađen user");
+            }
+            entity.Izbrisan = true;
+            await _context.SaveChangesAsync();
+
+
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
 
         public override IQueryable<Database1.Korisnik> AddFilter(IQueryable<Database1.Korisnik> query, KorisnikSearchObject? search = null)
         {
@@ -120,6 +137,11 @@ namespace FudbalskiKlub.Services
             if(!string.IsNullOrWhiteSpace(search?.Uloga))
             {
                 filteredQuery = filteredQuery.Where(x => x.Uloga.Contains(search.Uloga));
+            }
+
+            if(search.IsDeleted.HasValue)
+            {
+                filteredQuery = filteredQuery.Where(x => x.Izbrisan == search.IsDeleted);
             }
             return filteredQuery;
         }

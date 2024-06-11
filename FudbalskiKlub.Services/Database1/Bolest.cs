@@ -12,6 +12,7 @@ public partial class Bolest
     public string? TipPovrede { get; set; }
 
     public int? TrajanjePovredeDani { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual ICollection<KorisnikBolest> KorisnikBolests { get; set; } = new List<KorisnikBolest>();
 }

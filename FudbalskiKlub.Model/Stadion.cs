@@ -10,6 +10,8 @@ namespace FudbalskiKlub.Services.Model
         public string? NazivStadiona { get; set; }
 
         public int? KapacitetStadiona { get; set; }
+        public bool? Izbrisan { get; set; }
+
 
         //public virtual ICollection<Termin> Termins { get; set; } = new List<Termin>();
 

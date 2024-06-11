@@ -11,6 +11,6 @@ namespace FudbalskiKlub.Model.SearchObjects
         public string? NazivProizvoda { get; set; }
 
         public string? SifraProizvoda { get; set; }
-
+        //public string? StateMachineProizvoda { get; set; }
     }
 }

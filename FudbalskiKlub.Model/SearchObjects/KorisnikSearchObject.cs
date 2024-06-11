@@ -15,6 +15,7 @@ namespace FudbalskiKlub.Model.SearchObjects
         public bool? IsTransakcijskiRacunIncluded { get; set; }
         public bool? IsUlogaIncluded { get; set; }
         public bool? IsClanarinaIncluded { get; set; }
+        public bool? IsDeleted { get; set; }
 
     }
 }

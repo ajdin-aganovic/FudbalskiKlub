@@ -7,6 +7,7 @@ using FudbalskiKlub.Services.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -78,6 +79,7 @@ namespace FudbalskiKlub.Controllers
             return (_service as IKorisnikService).changePassword(id, kcpr);
 
         }
+
 
         //[HttpPost("login")]
         //public async Task<IActionResult> Login([FromBody] LoginRequest model)

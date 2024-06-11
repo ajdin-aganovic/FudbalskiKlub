@@ -16,6 +16,8 @@ public partial class Proizvod
     public double? Cijena { get; set; }
 
     public int? Kolicina { get; set; }
+    public bool? Izbrisan { get; set; }
+    public string? StateMachine { get; set; }
 
     public virtual ICollection<NarudzbaStavke> NarudzbaStavkes { get; set; } = new List<NarudzbaStavke>();
 }

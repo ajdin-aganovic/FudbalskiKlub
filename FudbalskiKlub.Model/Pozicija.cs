@@ -10,6 +10,8 @@ namespace FudbalskiKlub.Services.Model
         public string? NazivPozicije { get; set; }
 
         public string? KategorijaPozicije { get; set; }
+        public bool? Izbrisan { get; set; }
+
 
         public virtual ICollection<KorisnikPozicija> KorisnikPozicijas { get; set; } = new List<KorisnikPozicija>();
     }

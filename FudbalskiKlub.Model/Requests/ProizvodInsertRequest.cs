@@ -15,5 +15,7 @@ namespace FudbalskiKlub.Model.Requests
         public string? Kategorija { get; set; }
         public double? Cijena { get; set; }
         public int? Kolicina { get; set; }
+        public string? StateMachine { get; set; }
+
     }
 }

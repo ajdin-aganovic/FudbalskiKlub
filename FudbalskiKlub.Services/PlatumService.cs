@@ -59,14 +59,6 @@ namespace FudbalskiKlub.Services
             return base.AddInclude(query, search);
         }
 
-        public override Task<Model.Platum> Insert(PlatumInsertRequest insert)
-        {
-            var state = _baseState.CreateState("initial");
-
-            return state.Insert(insert);
-
-        }
-
         public override async Task<Model.Platum> Update(int id, PlatumUpdateRequest update)
         {
             var entity = await _context.Plata.FindAsync(id);
@@ -74,6 +66,14 @@ namespace FudbalskiKlub.Services
             var state = _baseState.CreateState(entity.StateMachine);
 
             return await state.Update(id, update);
+        }
+
+        public override Task<Model.Platum> Insert(PlatumInsertRequest insert)
+        {
+            var state = _baseState.CreateState("initial");
+
+            return state.Insert(insert);
+
         }
 
         public async Task<Model.Platum> Activate(int id)

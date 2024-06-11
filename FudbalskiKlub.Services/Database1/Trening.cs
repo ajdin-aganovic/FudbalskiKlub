@@ -12,6 +12,7 @@ public partial class Trening
     public string? TipTreninga { get; set; }
 
     public DateTime? DatumTreninga { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual ICollection<TreningStadion> TreningStadions { get; set; } = new List<TreningStadion>();
 }

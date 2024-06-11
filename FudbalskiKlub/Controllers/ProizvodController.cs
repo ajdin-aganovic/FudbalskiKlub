@@ -18,6 +18,26 @@ namespace FudbalskiKlub.Controllers
 
         }
 
+        [HttpPut("{id}/activate")]
+        public virtual async Task<Proizvod> Activate(int id)
+        {
+            return await (_service as IProizvodService).Activate(id);
+        }
+
+        [HttpPut("{id}/hide")]
+        public virtual async Task<Proizvod> Hide(int id)
+        {
+            return await (_service as IProizvodService).Hide(id);
+        }
+
+
+        [HttpGet("{id}/allowedActions")]
+        public virtual async Task<List<string>> AllowedActions(int id)
+        {
+            return await (_service as IProizvodService).AllowedActions(id);
+        }
+
+
         [HttpGet("{id}/recommend")]
         public virtual List<Services.Model.Proizvod> Recommend(int id)
         {

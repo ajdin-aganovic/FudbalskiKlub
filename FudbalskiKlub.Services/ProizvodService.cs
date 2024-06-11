@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.ML.Data;
+using FudbalskiKlub.Services.ProizvodStateMachine;
 
 namespace FudbalskiKlub.Services
 {
@@ -18,8 +19,10 @@ namespace FudbalskiKlub.Services
         BaseCRUDService<Model.Proizvod, Database1.Proizvod, ProizvodSearchObject, ProizvodInsertRequest, ProizvodUpdateRequest>, IProizvodService
 
     {
-        public ProizvodService(MiniafkContext context, IMapper mapper) : base(context, mapper)
+        public BaseProizvodState _baseState { get; set; }
+        public ProizvodService(BaseProizvodState baseState, MiniafkContext context, IMapper mapper) : base(context, mapper)
         {
+            _baseState = baseState;
         }
 
         public override IQueryable<Database1.Proizvod> AddFilter(IQueryable<Database1.Proizvod> query, ProizvodSearchObject? search = null)
@@ -141,6 +144,38 @@ namespace FudbalskiKlub.Services
 
         }
 
+        public override Task<Model.Proizvod> Insert(ProizvodInsertRequest insert)
+        {
+            var state = _baseState.CreateState("initial");
+
+            return state.Insert(insert);
+
+        }
+
+        public async Task<Model.Proizvod> Activate(int id)
+        {
+            var entity = await _context.Proizvods.FindAsync(id);
+
+            var state = _baseState.CreateState(entity.StateMachine);
+
+            return await state.Activate(id);
+        }
+
+        public async Task<Model.Proizvod> Hide(int id)
+        {
+            var entity = await _context.Proizvods.FindAsync(id);
+
+            var state = _baseState.CreateState(entity.StateMachine);
+
+            return await state.Hide(id);
+        }
+
+        public async Task<List<string>> AllowedActions(int id)
+        {
+            var entity = await _context.Proizvods.FindAsync(id);
+            var state = _baseState.CreateState(entity?.StateMachine ?? "initial");
+            return await state.AllowedActions();
+        }
 
     }
     //public class Copurchase_prediction

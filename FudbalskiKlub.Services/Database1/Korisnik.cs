@@ -30,6 +30,7 @@ public partial class Korisnik
     public DateTime? PodUgovoromDo { get; set; }
 
     public string? Uloga { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual ICollection<Clanarina> Clanarinas { get; set; } = new List<Clanarina>();
 

@@ -16,6 +16,7 @@ public partial class Clanarina
     public bool? Placena { get; set; }
 
     public DateTime? DatumPlacanja { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual Korisnik? Korisnik { get; set; }
 }

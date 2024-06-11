@@ -13,6 +13,8 @@ namespace FudbalskiKlub.Services.Model
 
         public string? NazivBanke { get; set; }
         public int? KorisnikId { get; set; }
+        public bool? Izbrisan { get; set; }
+
 
         public virtual ICollection<KorisnikTransakcijskiRacun> KorisnikTransakcijskiRacuns { get; set; } = new List<KorisnikTransakcijskiRacun>();
 

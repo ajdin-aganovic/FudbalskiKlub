@@ -14,6 +14,7 @@ public partial class TransakcijskiRacun
     public string? NazivBanke { get; set; }
 
     public int? KorisnikId { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual Korisnik? Korisnik { get; set; }
 

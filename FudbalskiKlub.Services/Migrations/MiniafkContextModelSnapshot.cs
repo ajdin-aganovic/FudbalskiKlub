@@ -30,6 +30,9 @@ namespace FudbalskiKlub.Services.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("BolestId"));
 
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("SifraPovrede")
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -62,6 +65,9 @@ namespace FudbalskiKlub.Services.Migrations
 
                     b.Property<double?>("Dug")
                         .HasColumnType("float");
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<double?>("IznosClanarine")
                         .HasColumnType("float");
@@ -100,6 +106,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasMaxLength(50)
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("KorisnickoIme")
                         .HasMaxLength(50)
@@ -313,6 +322,9 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Property<DateTime?>("DatumSlanja")
                         .HasColumnType("datetime");
 
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
+
                     b.Property<double?>("Iznos")
                         .HasColumnType("float");
 
@@ -339,6 +351,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PozicijaId"));
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("KategorijaPozicije")
                         .HasMaxLength(50)
@@ -367,6 +382,9 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Property<double?>("Cijena")
                         .HasColumnType("float");
 
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
+
                     b.Property<string>("Kategorija")
                         .HasMaxLength(50)
                         .IsUnicode(false)
@@ -385,6 +403,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<string>("StateMachine")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("ProizvodId")
                         .HasName("PK__Proizvod__21A8BFF81155EE96");
 
@@ -398,6 +419,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StadionId"));
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<int?>("KapacitetStadiona")
                         .HasColumnType("int");
@@ -436,6 +460,9 @@ namespace FudbalskiKlub.Services.Migrations
                     b.Property<bool?>("IgracMjeseca")
                         .HasColumnType("bit");
 
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("KorisnikId")
                         .HasColumnType("int");
 
@@ -463,6 +490,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TerminId"));
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Rezultat")
                         .HasMaxLength(50)
@@ -508,6 +538,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(30)");
 
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
+
                     b.Property<int?>("KorisnikId")
                         .HasColumnType("int");
 
@@ -534,6 +567,9 @@ namespace FudbalskiKlub.Services.Migrations
 
                     b.Property<DateTime?>("DatumTreninga")
                         .HasColumnType("datetime");
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NazivTreninga")
                         .HasMaxLength(50)
@@ -582,6 +618,9 @@ namespace FudbalskiKlub.Services.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UlogaId"));
+
+                    b.Property<bool?>("Izbrisan")
+                        .HasColumnType("bit");
 
                     b.Property<string>("NazivUloge")
                         .HasMaxLength(50)

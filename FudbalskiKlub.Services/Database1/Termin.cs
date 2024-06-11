@@ -14,6 +14,7 @@ public partial class Termin
     public int? StadionId { get; set; }
 
     public string? Rezultat { get; set; }
+    public bool? Izbrisan { get; set; }
 
     public virtual Stadion? Stadion { get; set; }
 }
