@@ -156,6 +156,12 @@ Widget _buildDataListView() {
                     ),
                     ),
 
+                    DataColumn(label: Expanded(
+                    child: Text("Status proizvoda",
+                    style: TextStyle(fontStyle: FontStyle.italic),),
+                    ),
+                    ),
+
                     ],
 
               rows: 
@@ -195,6 +201,7 @@ Widget _buildDataListView() {
                   DataCell(Text(e.kategorija??"---")),
                   DataCell(Text(e.cijena.toString()??"---")),
                   DataCell(Text(e.kolicina.toString()??"---")),
+                  DataCell(Text(e.stateMachine??"---")),
 
                   ]
                 )).toList()??[]

@@ -76,6 +76,7 @@ namespace FudbalskiKlub.Controllers
         public Services.Model.Korisnik changePassword(int id, KorisnikChangePasswordRequest kcpr)
 
         {
+            _logger.LogInformation("Korisnik zatražio promjenu passworda" + DateTime.Now);
             return (_service as IKorisnikService).changePassword(id, kcpr);
 
         }

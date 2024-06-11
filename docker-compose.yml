@@ -5,11 +5,11 @@ services:
     image: mcr.microsoft.com/mssql/server:2017-latest
     restart: unless-stopped
     environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=!321ewqDSA
-      - MSSQL_PID=Developer
+      - ACCEPT_EULA=${ACCEPT_EULA}
+      - SA_PASSWORD=${SA_PASSWORD}
+      - MSSQL_PID=${MSSQL_PID}
     ports:
-      - 1401:1433
+      - ${MSSQL_PORT}:1433
     expose:
       - 1433
     networks:
@@ -20,16 +20,28 @@ services:
     build:
       context: .
     environment:
-      - ConnectionStrings:DefaultConnection=Server=miniafk-sql,1433;Database=miniafk;User=sa;Password=!321ewqDSA;ConnectRetryCount=0; TrustServerCertificate=True
+      - ConnectionStrings:DefaultConnection=${CONNECTION_STRING}
+      #- ConnectionStrings:DefaultConnection=${LO_CONNECTION}
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - 7181:7181
+      - ${API_PORT}:${API_PORT}
     networks:
       - miniafk2024
     links:
       - miniafk-sql
     depends_on:
       - miniafk-sql
+
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_CREDENTIALS}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_CREDENTIALS}
+    networks:
+      - miniafk2024
       
 networks:
   miniafk2024:

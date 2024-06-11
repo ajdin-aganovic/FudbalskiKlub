@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EasyNetQ;
 using FudbalskiKlub.Model;
+using FudbalskiKlub.Model.Messages;
 using FudbalskiKlub.Model.Requests;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
@@ -67,9 +68,10 @@ namespace FudbalskiKlub.Services.ProizvodStateMachine
             entity.StateMachine = "active";
 
             await _context.SaveChangesAsync();
-            
 
-            //var factory = new ConnectionFactory { HostName = "localhost" };
+
+
+            //var factory = new ConnectionFactory { HostName = "localhost", UserName="guest", Password="Guest" };
             //using var connection = factory.CreateConnection();
             //using var channel = connection.CreateModel();
 
@@ -84,11 +86,14 @@ namespace FudbalskiKlub.Services.ProizvodStateMachine
             //                     basicProperties: null,
             //                     body: body);
 
+            var bus = RabbitHutch.CreateBus("host=localhost");
+
             var mappedEntity = _mapper.Map<Model.Proizvod>(entity);
 
-            //using var bus = RabbitHutch.CreateBus("host=localhost");
+            ProizvodActivated poruka = new ProizvodActivated { ProizvodPoruka = mappedEntity };
 
-            //bus.PubSub.Publish(mappedEntity);
+
+            bus.PubSub.Publish(poruka);
 
             return mappedEntity;
         }

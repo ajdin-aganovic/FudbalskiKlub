@@ -1,12 +1,36 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//using EasyNetQ;
-//using FudbalskiKlub.Services.Model;
-//using RabbitMQ.Client;
-//using RabbitMQ.Client.Events;
-//using System.Text;
+using EasyNetQ;
+using FudbalskiKlub.Model.Messages;
+using FudbalskiKlub.Services.Model;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Text;
 
-//Console.WriteLine("Hello, World!");
+Console.WriteLine("Hello, World!");
 
+var bus = RabbitHutch.CreateBus("host=localhost");
+await bus.PubSub.SubscribeAsync<ProizvodActivated>("console_print", msg =>
+{
+    if(msg!=null)
+    {
+        Console.WriteLine($"Product activated: {msg.ProizvodPoruka.Naziv}");
+
+    }
+    else
+    {
+        Console.WriteLine("Pogresan proizvod");
+    }
+
+});
+
+Console.WriteLine("Listening to messages, press Return to close!");
+Console.ReadLine();
+
+
+
+
+
+//Od prije
 
 
 //var factory = new ConnectionFactory { HostName = "localhost" };

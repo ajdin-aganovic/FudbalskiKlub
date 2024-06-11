@@ -96,9 +96,9 @@ using (var scope = app.Services.CreateScope())
     var dataContext = scope.ServiceProvider.GetRequiredService<MiniafkContext>();
     //dataContext.Database.EnsureCreated();
 
-    var conn = dataContext.Database.GetConnectionString();
 
     //dataContext.Database.Migrate();
+    var conn = dataContext.Database.GetConnectionString();
 
 
 }

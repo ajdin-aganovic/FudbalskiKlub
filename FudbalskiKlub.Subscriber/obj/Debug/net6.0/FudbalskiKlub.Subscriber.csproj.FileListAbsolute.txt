@@ -13,3 +13,10 @@ C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKl
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Model.dll
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Model.pdb
 C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\FudbalskiKlub.Subscriber.csproj.CopyComplete
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Subscriber.exe
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\FudbalskiKlub.Subscriber.runtimeconfig.json
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\EasyNetQ.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\RabbitMQ.Client.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\bin\Debug\net6.0\System.Threading.Channels.dll
+C:\Fakultet\FIT-III-godina\RS-II\SeminarskiRad\Backend\FudbalskiKlub\FudbalskiKlub.Subscriber\obj\Debug\net6.0\FudbalskiKlub.Subscriber.genruntimeconfig.cache

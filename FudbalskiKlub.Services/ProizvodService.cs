@@ -152,6 +152,14 @@ namespace FudbalskiKlub.Services
 
         }
 
+        public override async Task<Model.Proizvod> Update (int id, ProizvodUpdateRequest update)
+        {
+            var entity = await _context.Proizvods.FindAsync(id);
+            var state = _baseState.CreateState(entity.StateMachine);
+
+            return await state.Update(id, update);
+        }
+
         public async Task<Model.Proizvod> Activate(int id)
         {
             var entity = await _context.Proizvods.FindAsync(id);
