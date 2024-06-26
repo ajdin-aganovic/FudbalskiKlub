@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EasyNetQ;
 using FudbalskiKlub.Model;
+using FudbalskiKlub.Model.Messages;
 using FudbalskiKlub.Model.Requests;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
@@ -81,9 +82,20 @@ namespace FudbalskiKlub.Services.ProizvodiStateMachine
 
             var mappedEntity = _mapper.Map<Model.Platum>(entity);
 
-            //using var bus = RabbitHutch.CreateBus("host=localhost");
+            try
+            {
 
-            //bus.PubSub.Publish(mappedEntity);
+                var bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
+
+                PlatumActivated poruka = new PlatumActivated { PlatumPoruka = mappedEntity };
+
+                bus.PubSub.Publish(poruka);
+
+            }
+            catch
+            {
+                _logger.LogError("Nije mogla da se posalje poruka jer RabbitMQ mikroservis ne radi!");
+            }
 
             return mappedEntity;
         }

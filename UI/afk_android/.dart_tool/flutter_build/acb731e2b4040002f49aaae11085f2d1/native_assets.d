@@ -1,0 +1,1 @@
+ C:\\Fakultet\\FIT-III-godina\\RS-II\\SeminarskiRad\\Backend\\FudbalskiKlub\\UI\\afk_android\\.dart_tool\\flutter_build\\acb731e2b4040002f49aaae11085f2d1\\native_assets.yaml: 

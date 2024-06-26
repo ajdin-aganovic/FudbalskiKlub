@@ -86,14 +86,23 @@ namespace FudbalskiKlub.Services.ProizvodStateMachine
             //                     basicProperties: null,
             //                     body: body);
 
-            var bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
+            // Naredne zakomentarisane linije moraš otkomentarisati, da bi radio RabbitMQ
 
             var mappedEntity = _mapper.Map<Model.Proizvod>(entity);
 
-            ProizvodActivated poruka = new ProizvodActivated { ProizvodPoruka = mappedEntity };
+            try
+            {
 
+                var bus = RabbitHutch.CreateBus("host=localhost;username=guest;password=guest");
 
-            bus.PubSub.Publish(poruka);
+                ProizvodActivated poruka = new ProizvodActivated { ProizvodPoruka = mappedEntity };
+
+                bus.PubSub.Publish(poruka);
+
+            }catch
+            {
+                _logger.LogError("Nije mogla da se posalje poruka jer RabbitMQ mikroservis ne radi!");
+            }
 
             return mappedEntity;
         }
