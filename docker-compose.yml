@@ -10,8 +10,8 @@ services:
       - MSSQL_PID=${MSSQL_PID}
     ports:
       - ${MSSQL_PORT}:1433
-    expose:
-      - 1433
+    #expose:
+    #  - 1433
     networks:
       - miniafk2024
 

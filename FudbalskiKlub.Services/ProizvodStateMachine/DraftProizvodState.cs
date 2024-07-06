@@ -57,9 +57,9 @@ namespace FudbalskiKlub.Services.ProizvodStateMachine
         {
             _logger.LogInformation($"Aktivacija proizvoda: {id}");
 
-            _logger.LogWarning($"W: Aktivacija proizvoda: {id}");
+            //_logger.LogWarning($"W: Aktivacija proizvoda: {id}");
 
-            _logger.LogError($"E: Aktivacija proizvoda: {id}");
+            //_logger.LogError($"E: Aktivacija proizvoda: {id}");
 
             var set = _context.Set<Database1.Proizvod>();
 
