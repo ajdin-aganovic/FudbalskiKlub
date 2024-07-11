@@ -1,5 +1,5 @@
 # APLIKACIJA FUDBALSKOG KLUBA
-Aplikacija fudbalskog kluba je projekat koji pomaže svakoj vrsti fudbalskog kluba, u pokretanju i održavanju svog posla. Ova intuitivna i jednostavna za oko aplikacija, služi kako za administratorski dio (Administracija, Stručni štab, Medicinsko osoblje, Članovi), tako i za njihove Fanove/Kupce.
+Aplikacija fudbalskog kluba osmišljena je kako bi pomogla svim vrstama fudbalskih klubova u pokretanju i održavanju njihovih aktivnosti. Ova intuitivna i vizuelno privlačna aplikacija pokriva administrativni i interni dio (Administracija, Stručni štab, Medicinsko osoblje, Članovi) i omogućava jednostavnu interakciju sa fanovima i kupcima. Ova aplikacija je dizajnirana da bude korisna, fleksibilna i prilagodljiva, čime pomaže klubovima da efikasnije upravljaju svojim poslovanjem i jačaju vezu sa svojim navijačima.
 
 ## Kredencijali za prijavu - Desktop aplikacija
 - Administrator
