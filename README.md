@@ -39,6 +39,8 @@ Lozinka: string
 ```
 https://github.com/ajdin-aganovic/FudbalskiKlub
 Važno: Potrebno je klonirati branch junsko-julski-24
+```
+```
 Komanda:
 git clone -b junsko-julski-24 --single-branch https://github.com/ajdin-aganovic/FudbalskiKlub.git
 ```
