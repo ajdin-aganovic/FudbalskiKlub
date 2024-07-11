@@ -38,6 +38,9 @@ Lozinka: string
 1.  Klonirajte repozitorije
 ```
 https://github.com/ajdin-aganovic/FudbalskiKlub
+Važno: Potrebno je klonirati branch junsko-julski-24
+Komanda:
+git clone -b junsko-julski-24 --single-branch https://github.com/ajdin-aganovic/FudbalskiKlub.git
 ```
 ```
 https://github.com/ajdin-aganovic/afk_admin
@@ -47,7 +50,8 @@ https://github.com/ajdin-aganovic/afk_android
 ```
 1.1. Postavljanje samih repozitorija
 ```
-Za potrebe postavljanje ove aplikacije, prati se sljedeća struktura: Nakon kloniranja FudbalskiKlub repozitorija, unutar UI foldera, kloniraju se afk_admin i afk_android, respektivno.
+Za potrebe postavljanje ove aplikacije, prati se sljedeća struktura:
+Nakon kloniranja FudbalskiKlub repozitorija, unutar UI foldera, kloniraju se afk_admin i afk_android, respektivno.
 ```
 2. Otvara se FudbalskiKlub u Konzoli
 3. Pokreće se dokerizacija API-ja i Baze podataka
