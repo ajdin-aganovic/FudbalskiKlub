@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       - ACCEPT_EULA=${ACCEPT_EULA}
-      - SA_PASSWORD=${SA_PASSWORD}
+      - SA_PASSWORD=${LO_PASSWORD}
       - MSSQL_PID=${MSSQL_PID}
     ports:
       - ${MSSQL_PORT}:1433
@@ -14,6 +14,8 @@ services:
     #  - 1433
     networks:
       - miniafk2024
+    #volumes:
+    #  - sqlserverdata:/var/opt/mssql
 
   miniafk-api:
     restart: unless-stopped
@@ -21,6 +23,7 @@ services:
       context: .
     environment:
       - ConnectionStrings:DefaultConnection=${CONNECTION_STRING}
+      #- ConnectionStrings:DefaultConnection=Server=miniafk-sql,1433;Database=miniafk;User=sa;Password=ASDqwe123!;ConnectRetryCount=0; TrustServerCertificate=True
       #- ConnectionStrings:DefaultConnection=${LO_CONNECTION}
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
