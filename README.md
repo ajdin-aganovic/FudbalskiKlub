@@ -1,10 +1,108 @@
-Fudbalski klub - API dio.
+# APLIKACIJA FUDBALSKOG KLUBA
+Aplikacija fudbalskog kluba je projekat koji pomaže svakoj vrsti fudbalskog kluba, u pokretanju i održavanju svog posla. Ova intuitivna i jednostavna za oko aplikacija, služi kako za administratorski dio (Administracija, Stručni štab, Medicinsko osoblje, Članovi), tako i za njihove Fanove/Kupce.
 
-Login kredencijali za Administratora -> ajdo:string
-Login kredencijali za Glavnog trenera -> Trener1:string
-Login kredencijali za Kupca -> userTest:string
-Login kredencijali za Glavnog doktora -> Doktor1:string
-Login kredencijali za Igrača -> Igrac1:string
+## Kredencijali za prijavu - Desktop aplikacija
+- Administrator
+```
+Korisničko ime: ajdo
+Lozinka: string
+```
+- Stručni štab
+```
+Korisničko ime: trener1
+Lozinka: string
+```
+- Medicinsko osoblje
+```
+Korisničko ime: doktor1
+Lozinka: string
+```
+- Član
+```
+Korisničko ime: igrac1
+Lozinka: string
+```
+## Kredencijali za prijavu - Mobilna aplikacija
+- Administrator
+```
+Korisničko ime: ajdo
+Lozinka: string
+```
+- Kupac
+```
+Korisničko ime: kupac1
+Lozinka: string
+```
 
-Docker compose fajl se nalazi u glavnom folderu, FudbalskiKlub. Implementacija je urađena za mikroservise MSSQL - localhost, 1401; Swagger - localhost:7181; RabbitMQ - localhost:15672.
+## Pokretanje aplikacije
+1.  Klonirajte repozitorije
+```
+https://github.com/ajdin-aganovic/FudbalskiKlub
+```
+```
+https://github.com/ajdin-aganovic/afk_admin
+```
+```
+https://github.com/ajdin-aganovic/afk_android
+```
+1.1. Postavljanje samih repozitorija
+```
+Za potrebe postavljanje ove aplikacije, prati se sljedeća struktura: Nakon kloniranja FudbalskiKlub repozitorija, unutar UI foldera, kloniraju se afk_admin i afk_android, respektivno.
+```
+2. Otvara se FudbalskiKlub u Konzoli
+3. Pokreće se dokerizacija API-ja i Baze podataka
+```
+  docker-compose build
+  docker-compose up
+```
+odnosno
+```
+docker compose up --build
+```
+4. Pokretanje Desktop aplikacije kroz Visual Studio Code
 
+- Otvorite FudbalskiKlub folder
+
+- Otvorite UI folder
+
+- Unutar UI foldera, odaberite afk_admin
+
+- Dobavljanje dependency-a (Fetch dependencies)
+```
+  flutter pub get
+```
+ Pokretanje same desktop aplikacije pomoću komande 
+```
+ flutter run -d windows
+```
+ 
+5. Pokretanje mobilne aplikacije kroz Visual Studio Code
+
+- Otvorite FudbalskiKlub folder
+
+- Otvorite UI folder
+  
+- Unutar UI foldera, odaberite afk_android
+ 
+- Dobavljanje dependency-a (Fetch dependencies)
+```
+  flutter pub get
+```
+- Pokrenite mobilni emulator
+- Bonus: Ako želite da aplikaciju instalirate na svome mobilnom uređaju, umjesto emulatora, možete jednostavno pratiti ove korake:
+-  Zakomentarisati liniju 26 unutar BaseProvider-a
+-  Otkomentarisati liniju 27 unutar BaseProvider-a
+-  U polju adresa, unijeti vlastitu IPv4 adresu (dobija se pokretanjem komande ipconfig (ili ifconfig) u Konzoli)
+
+- Pokrenuti mobilnu aplikaciju bez debugiranja putem komande CTRL + F5 ili u Terminalu pokrenuti sljedeću komandu
+```
+flutter run
+```
+
+6. Korištenje RabbitMQ-a kroz Visual Studio
+- Odabrati FudbalskiKlub.Subscriber kao početni projekat i pokrenuti ga.
+- RabbitMQ servis se koristi za obavještavanje korisnika o Platama i Proizvodima, respektivno.
+
+7. Polje zaboravljena lozinka:
+- Na ekranu za Prijavu, ispod polja Prijavi se, nalazi se i opcija Zaboravljena lozinka. Klikom na nju ulazi se u formu za slanje zahtjeva administratoru za ponovnim postavljanjem lozinke.
+- Prijedlog: Koristiti odvojene adrese za testiranje ovoga dijela u poljima Vaš email (odlazna pošta) i Email administratora (dolazna pošta).
